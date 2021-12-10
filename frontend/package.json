@@ -1,0 +1,59 @@
+{
+  "name": "consumify",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@mantine/core": "^3.2.2",
+    "@mantine/dates": "^3.2.2",
+    "@mantine/dropzone": "^3.2.2",
+    "@mantine/hooks": "^3.2.2",
+    "@mantine/modals": "^3.2.2",
+    "@mantine/notifications": "^3.2.2",
+    "@radix-ui/react-icons": "^1.0.3",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@visx/group": "^2.1.0",
+    "@visx/point": "^2.1.0",
+    "@visx/responsive": "^2.4.1",
+    "@visx/scale": "^2.2.2",
+    "@visx/shape": "^2.4.0",
+    "axios": "^0.24.0",
+    "mobx": "^6.3.7",
+    "mobx-react-lite": "^3.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
