@@ -4,3 +4,7 @@ export const PATHS = {
     PROFILE: 'profile',
     PRODUCT: (product_id: number) => `product/${product_id}`,
 }
+
+export const DISPLAY_NONE = {
+    display: 'none'
+}
