@@ -4,15 +4,17 @@ import { getColor } from "../../methods/color-picker";
 import { CardInterface } from "../../http/models";
 import { PlusIcon } from '@radix-ui/react-icons'
 
-const CardItem = ( props:CardInterface ) => {
+const CardItem = ( props:{
+    card: CardInterface
+}) => {
     return (
         <div style={{width: '220px'}}>
             <Card shadow='md' padding='xs'>
                 <Card.Section>
-                    <div style={{ marginTop: '-20px' ,height: '180px', backgroundColor: getColor(props.id, props.total) }}>
+                    <div style={{ marginTop: '-20px' ,height: '180px', backgroundColor: getColor(props.card.id, props.card.total) }}>
                         <Group position="apart" sx={{margin: 5}}>
                             {
-                                props.partner &&
+                                props.card.partner &&
                                 <Badge variant='filled' size='xs'
                                        sx={{margin: '10px'}}>
                                     Partner
@@ -33,15 +35,15 @@ const CardItem = ( props:CardInterface ) => {
                 </Card.Section>
                     <Group position="apart" sx={{ marginBottom: 5, marginTop: 10}}>
                         <Text>
-                            { props.name }
+                            { props.card.name }
                         </Text>
                         <Badge>
-                            { props.cashback }%
+                            { props.card.cashback }%
                         </Badge>
                     </Group>
                     <Group position="apart" sx={{marginTop: 30}}>
                         <Button size="sm" sx={{ padding: '5px 30px' }}>
-                            { props.price }₽
+                            { props.card.price }₽
                         </Button>
                     </Group>
             </Card>
