@@ -1,7 +1,8 @@
 import React from 'react';
-import {Group, Space, Title} from "@mantine/core";
+import {Group, Space, Title, MediaQuery} from "@mantine/core";
 import PromoCode from "../shared/promo-code";
 import {PromoCodeInterface} from "../../http/models";
+import {DISPLAY_NONE} from "../../meta/paths";
 
 const data = [
     {
@@ -65,15 +66,43 @@ const PromoCodeBlock = () => {
         <div>
             <Title order={1}>Промокоды</Title>
             <Space/>
-            <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto"}}>
-                {
-                    data.map( (item:PromoCodeInterface ) => {
-                        return (
-                            <PromoCode promoCode={ item }/>
-                        )
-                    })
-                }
-            </Group>
+            <MediaQuery smallerThan="xs" styles={DISPLAY_NONE}>
+                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '300px'}}>
+                    {
+                        data.map( (item:PromoCodeInterface ) => {
+                            return (
+                                <PromoCode promoCode={ item }/>
+                            )
+                        })
+                    }
+                </Group>
+            </MediaQuery>
+
+
+            <MediaQuery smallerThan="md" largerThan="xs" styles={DISPLAY_NONE}>
+                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '650px'}}>
+                    {
+                        data.map( (item:PromoCodeInterface ) => {
+                            return (
+                                <PromoCode promoCode={ item }/>
+                            )
+                        })
+                    }
+                </Group>
+            </MediaQuery>
+
+
+            <MediaQuery smallerThan="xl" largerThan="md" styles={DISPLAY_NONE}>
+                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '920px'}}>
+                    {
+                        data.map( (item:PromoCodeInterface ) => {
+                            return (
+                                <PromoCode promoCode={ item }/>
+                            )
+                        })
+                    }
+                </Group>
+            </MediaQuery>
             <Space/>
         </div>
     );
