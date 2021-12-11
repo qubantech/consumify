@@ -3,4 +3,5 @@ export interface PromoCodeInterface {
     title: string
     description: string,
     color: string,
+    code: string
 }

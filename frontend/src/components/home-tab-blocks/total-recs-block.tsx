@@ -19,7 +19,8 @@ const TotalRecsBlock = observer(() => {
 
     return (
         <>
-            <Title order={1}></Title>
+            <Title order={1}>Рекомендовано Вам</Title>
+            <Space h={"sm"}/>
             {
                 !isFetching &&
                 <div>

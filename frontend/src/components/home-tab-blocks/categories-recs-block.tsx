@@ -21,13 +21,8 @@ const CategoriesRecsBlock = observer(() => {
 
     return (
         <div>
-            <Title order={1}></Title>
-            {/*<SegmentedControl
-                fullWidth
-                value={filterValue}
-                // onChange={changeFilter}
-                data={filterOptions}
-            />*/}
+            <Title order={1}>Рекомендации по категориям</Title>
+            <Space h={"sm"}/>
             {!isFetching &&
             <div>
                 <div>
