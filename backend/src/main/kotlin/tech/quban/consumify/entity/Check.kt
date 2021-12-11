@@ -10,5 +10,5 @@ data class Check(
     @ManyToOne
     val seller: Seller,
     @ManyToMany(fetch = FetchType.LAZY)
-    val products: List<Position>
+    val positions: List<Position>
 )
