@@ -6,3 +6,8 @@ export interface CardInterface {
     partner: boolean,
     price: number,
 }
+
+export interface FilterInterface {
+    label:string,
+    value:string
+}

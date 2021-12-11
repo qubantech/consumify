@@ -8,7 +8,7 @@ const CardItem = ( props:{
     card: CardInterface
 }) => {
     return (
-        <div style={{width: '220px'}}>
+        <div style={{maxWidth: '300px', minWidth: '230px'}}>
             <Card shadow='md' padding='xs'>
                 <Card.Section>
                     <div style={{ marginTop: '-20px' ,height: '180px', backgroundColor: getColor(props.card.id, props.card.total) }}>

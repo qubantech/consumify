@@ -7,8 +7,9 @@ import {useMediaQuery} from "@mantine/hooks";
 export const HomeTab = () => {
     const mdscreen = useMediaQuery('(min-width: 992px)');
 
+
     return (
-        <Container size='sm' padding='sm' sx={
+        <Container padding='sm' sx={
             (theme) => ({
                 paddingTop: 10,
                 paddingBottom: 10,

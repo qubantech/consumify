@@ -55,12 +55,12 @@ const App = () => {
                         sm: 768,
                         md: 992,
                         lg: 1200,
-                        xl: 1400,
+                        xl: 1500,
                     },
                 }}>
                 <BrowserRouter>
                     <ModalCashBacks/>
-                    <AppShell style={{paddingTop: mdscreen ? 66 : 0}} header={<Header/>} styles={shellStyle}>
+                    <AppShell style={{paddingTop: mdscreen ? 66 : 0, paddingBottom: mdscreen ? 0 : 49}} header={<Header/>} styles={shellStyle}>
                         <Routes>
                             <Route path={PATHS.LOGIN}
                                    element={<LoginTab/>}/>

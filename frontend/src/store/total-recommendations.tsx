@@ -50,15 +50,38 @@ const cardsInitState:CardInterface[] = [{
     cashback: 3,
     partner: true,
     price: 1000,
-}];
+},
+    {
+    name: 'name',
+    id: 6,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+},
+    {
+    name: 'name',
+    id: 7,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+}, {
+        name: 'name',
+        id: 8,
+        total: 10,
+        cashback: 3,
+        partner: false,
+        price: 1000,
+    }];
 
-const inPage = 3;
+const inPage = 6;
 
 const totalRecommendations = () => {
     const store = {
         isFetching: false,
         cards: cardsInitState,
-        currCards: cardsInitState,
+        currCards: cardsInitState.slice(0, inPage),
         total: 2,
         currentPage: 1,
         setCurrentPage (page: number) {
@@ -71,7 +94,6 @@ const totalRecommendations = () => {
     })
 
     return makeAutoObservable(store)
-
 }
 
 export const storeTotalRecommendations = totalRecommendations()
