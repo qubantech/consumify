@@ -6,5 +6,6 @@ import tech.quban.consumify.entity.Seller
 fun Seller.toSellerDto(): SellerDto = SellerDto(
     id = id,
     name = name,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
+    category = category.toCategoryDto()
 )

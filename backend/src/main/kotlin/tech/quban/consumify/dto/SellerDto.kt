@@ -6,5 +6,6 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class SellerDto(
     val id: Long,
     val name: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val category: CategoryDto
 )
