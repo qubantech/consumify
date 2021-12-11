@@ -7,6 +7,8 @@ data class Seller(
     @Id val id: Long,
     val name: String,
     val imageUrl: String,
+    @ManyToOne
+    val category: Category,
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

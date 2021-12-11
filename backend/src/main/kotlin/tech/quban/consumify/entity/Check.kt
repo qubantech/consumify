@@ -9,6 +9,6 @@ data class Check(
     @Id val check_id: Long,
     @ManyToOne
     val seller: Seller,
-    @ManyToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     val positions: List<Position>
 )
