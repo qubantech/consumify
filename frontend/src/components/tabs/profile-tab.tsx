@@ -22,7 +22,7 @@ export const ProfileTab = () => {
             >
                 <StartAndProfileBlock/>
                 <Space/>
-                <Skeleton visible={!isFetching}>
+                <Skeleton visible={isFetching}>
                     <Grid>
                         <Col span={12} xs={12} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
                             <Check/>

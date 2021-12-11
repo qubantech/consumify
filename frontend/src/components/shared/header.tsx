@@ -91,7 +91,6 @@ export const Header = () => {
                                        alt="dark-theme-logo"
                                 />
                             </Group>
-                            {/*<Avatar radius="xl">{DarkThemeLogo}</Avatar>*/}
                         </UnstyledButton>
                     </Link>
                 </Group>
