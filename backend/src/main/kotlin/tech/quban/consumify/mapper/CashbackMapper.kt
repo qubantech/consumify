@@ -1,9 +1,10 @@
 package tech.quban.consumify.mapper
 
-object CashbackMapper {
+import tech.quban.consumify.dto.CashbackDto
+import tech.quban.consumify.entity.Cashback
 
 
-    fun cashbackToDto() {
-
-    }
-}
+fun Cashback.toCashbackDto(): CashbackDto = CashbackDto(
+    percent = percent,
+    description = description
+)

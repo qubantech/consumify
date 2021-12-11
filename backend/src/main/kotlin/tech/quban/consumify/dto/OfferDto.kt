@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import java.math.BigDecimal
 
 
-@Schema(name = "OfferDto")
+@Schema(name = "Offer")
 data class OfferDto (
     val seller: String,
     val sellerImageUrl: String,
