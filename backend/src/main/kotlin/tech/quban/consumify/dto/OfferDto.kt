@@ -6,7 +6,7 @@ import java.math.BigDecimal
 
 @Schema(name = "Offer")
 data class OfferDto (
-    val seller: String,
-    val sellerImageUrl: String,
-    val price: BigDecimal
+    val seller: SellerDto,
+    val price: BigDecimal,
+    val cashbackValue: BigDecimal
 )
