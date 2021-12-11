@@ -8,7 +8,8 @@ import {
     Center,
     useMantineColorScheme,
     UnstyledButton,
-    Avatar
+    Avatar,
+    Image
 } from '@mantine/core'
 
 import {
@@ -29,6 +30,7 @@ import DarkThemeLogo from './../../assets/consumify-black-theme-logo.svg'
 import LightThemeLogo from './../../assets/consumify-white-theme-logo.svg'
 import DarkThemeTextLogo from './../../assets/consumify-black-text-logo.svg'
 import LightThemeTextLogo from './../../assets/consumify-white-text-logo.svg'
+import {useMediaQuery} from "@mantine/hooks";
 
 
 const ICON_SIZE = { height: 20, width: 20 }
@@ -43,6 +45,8 @@ export const Header = () => {
 
     const onThemeButtonClick = () => toggleColorScheme()
     const onCashbackButtonClick = () => storeCashBacks.setIsOpen(true)
+
+    const mediumScreen = useMediaQuery('(max-width: 992px)');
 
 
     const MobileView = () =>
@@ -77,8 +81,16 @@ export const Header = () => {
                 <Group>
                     <Link to={PATHS.HOME}>
                         <UnstyledButton>
-                            <img src={DarkThemeLogo} alt="dark-theme-logo"/>
-                            <img src={LightThemeTextLogo} alt="dark-theme-logo"/>
+                            <Group spacing='xs'>
+                                <Image src={DarkThemeLogo}
+                                       alt="dark-theme-logo"
+                                       width={37}
+                                       height={37}
+                                />
+                                <Image src={LightThemeTextLogo}
+                                       alt="dark-theme-logo"
+                                />
+                            </Group>
                             {/*<Avatar radius="xl">{DarkThemeLogo}</Avatar>*/}
                         </UnstyledButton>
                     </Link>
@@ -102,12 +114,9 @@ export const Header = () => {
 
     return (
         <>
-            <MediaQuery smallerThan={"md"} styles={DISPLAY_NONE}>
-                <MobileView/>
-            </MediaQuery>
-            <MediaQuery largerThan={"md"} styles={DISPLAY_NONE}>
-                <DesktopView/>
-            </MediaQuery>
+            {
+                mediumScreen ? <MobileView/> : <DesktopView/>
+            }
         </>
     )
 }
