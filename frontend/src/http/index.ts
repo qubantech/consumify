@@ -4,15 +4,14 @@ import axios from 'axios'
 export const API_URL = 'https://api.quban.tech/'
 
 export const ENDPOINTS = {
-    PRODUCTS: (page: number, count: number) => `product?page=${page}&count=${count}`,
-    PRODUCT: (product_id: string) => `product/${product_id}`,
-    REVIEWS: (product_id: string) => `product/id/review`,
-
+    DEFAULT_CASHBACK: (user_id: number) => API_URL + `cashback/${user_id}`,
+    SELLER_CASHBACK: (user_id: number) => API_URL + `cashback/${user_id}/seller`,
+    CATEGORY_CASHBACK: (user_id: number) => API_URL + `cashback/${user_id}/category`,
 }
 
 const baseConfig = {
     withCredentials: true,
     baseURL: API_URL,
-};
+}
 
-export const $api = axios.create(baseConfig);
+export const $api = axios.create(baseConfig)
