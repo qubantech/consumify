@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/")
-class DefaultController() {
+class DefaultController {
 
     @GetMapping
     @Operation(summary = "Example summary.", description = "Example description.")
