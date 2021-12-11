@@ -12,11 +12,11 @@ const CardItem = ( props:{
             <Card shadow='md' padding='xs'>
                 <Card.Section>
                     <div style={{ marginTop: '-20px' ,height: '180px', backgroundColor: getColor(props.card.id, props.card.total) }}>
-                        <Group position="apart" sx={{margin: 5}}>
+                        <Group position={props.card.partner ? "apart" : "right"} sx={{margin: 5}}>
                             {
                                 props.card.partner &&
                                 <Badge variant='filled' size='xs'
-                                       sx={{margin: '10px'}}>
+                                       sx={{margin: '5px'}}>
                                     Partner
                                 </Badge>
                             }
@@ -24,6 +24,7 @@ const CardItem = ( props:{
                             (theme) => ({
                                 backgroundColor: theme.colorScheme === 'dark' ? '#25262b' : 'lightgray',
                                 borderRadius: '8px',
+                                margin: '5px',
                                 '&:focus': {
                                 backgroundColor: 'darkgray',
                             }

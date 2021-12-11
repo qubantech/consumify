@@ -75,7 +75,7 @@ const cardsInitState:CardInterface[] = [{
         price: 1000,
     }];
 
-const inPage = 6;
+const inPage = 4;
 
 const totalRecommendations = () => {
     const store = {
