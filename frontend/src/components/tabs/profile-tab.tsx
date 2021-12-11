@@ -25,10 +25,10 @@ export const ProfileTab = () => {
                     <StartAndProfileBlock/>
                     <Space/>
                     <Grid>
-                        <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "center"}}>
+                        <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
                             <Check/>
                         </Col>
-                        <Col  span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "center"}}>
+                        <Col  span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "right"}}>
                             <Check/>
                         </Col>
                     </Grid>
