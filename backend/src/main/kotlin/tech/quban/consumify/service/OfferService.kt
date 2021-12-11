@@ -1,5 +1,5 @@
 package tech.quban.consumify.service
 
-class OfferService {
-
+interface OfferService {
+    fun getOfferListByUserIdAndProductId(userId: Long, productId: Long)
 }
