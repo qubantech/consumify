@@ -4,7 +4,7 @@ import {AppShell, MantineTheme, ColorSchemeProvider, ColorScheme, MantineProvide
 import {BrowserRouter, Routes, Route, useLocation, Navigate} from 'react-router-dom'
 
 import { Header } from './components/shared'
-import { PATHS } from './meta/paths'
+import { PATHS } from './misc/paths'
 import { HomeTab, ProfileTab } from './components/tabs'
 import {useColorScheme, useMediaQuery} from "@mantine/hooks";
 import {ModalCashBacks} from "./components/overlays/modal-cash-backs";

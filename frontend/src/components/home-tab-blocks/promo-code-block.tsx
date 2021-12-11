@@ -1,8 +1,9 @@
 import React from 'react';
-import {Group, Space, Title, MediaQuery} from "@mantine/core";
+import { Group, Space, Title, MediaQuery } from "@mantine/core";
 import PromoCode from "../shared/promo-code";
-import {PromoCodeInterface} from "../../http/models";
-import {DISPLAY_NONE} from "../../meta/paths";
+import { PromoCodeInterface } from "../../http/models";
+import { DISPLAY_NONE } from "../../misc/paths";
+
 
 const data = [
     {
@@ -67,11 +68,12 @@ const PromoCodeBlock = () => {
             <Title order={1}>Промокоды</Title>
             <Space/>
             <MediaQuery smallerThan="xs" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '400px'}}>
+                <Group className={'hide-scroll'} align='top' noWrap={true}
+                       style={{ overflowX: "auto", width: '400px' }}>
                     {
-                        data.map( (item:PromoCodeInterface ) => {
+                        data.map((item: PromoCodeInterface) => {
                             return (
-                                <PromoCode promoCode={ item }/>
+                                <PromoCode promoCode={item}/>
                             )
                         })
                     }
@@ -79,11 +81,12 @@ const PromoCodeBlock = () => {
             </MediaQuery>
 
             <MediaQuery smallerThan="sm" largerThan="xs" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '650px'}}>
+                <Group className={'hide-scroll'} align='top' noWrap={true}
+                       style={{ overflowX: "auto", width: '650px' }}>
                     {
-                        data.map( (item:PromoCodeInterface ) => {
+                        data.map((item: PromoCodeInterface) => {
                             return (
-                                <PromoCode promoCode={ item }/>
+                                <PromoCode promoCode={item}/>
                             )
                         })
                     }
@@ -92,11 +95,12 @@ const PromoCodeBlock = () => {
 
 
             <MediaQuery smallerThan="md" largerThan="sm" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '900px'}}>
+                <Group className={'hide-scroll'} align='top' noWrap={true}
+                       style={{ overflowX: "auto", width: '900px' }}>
                     {
-                        data.map( (item:PromoCodeInterface ) => {
+                        data.map((item: PromoCodeInterface) => {
                             return (
-                                <PromoCode promoCode={ item }/>
+                                <PromoCode promoCode={item}/>
                             )
                         })
                     }
@@ -105,11 +109,12 @@ const PromoCodeBlock = () => {
 
 
             <MediaQuery largerThan="md" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '920px'}}>
+                <Group className={'hide-scroll'} align='top' noWrap={true}
+                       style={{ overflowX: "auto", width: '920px' }}>
                     {
-                        data.map( (item:PromoCodeInterface ) => {
+                        data.map((item: PromoCodeInterface) => {
                             return (
-                                <PromoCode promoCode={ item }/>
+                                <PromoCode promoCode={item}/>
                             )
                         })
                     }
