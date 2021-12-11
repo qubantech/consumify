@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 
-import {AppShell, Modal, MantineTheme, ColorSchemeProvider, ColorScheme, MantineProvider} from '@mantine/core'
+import {AppShell, MantineTheme, ColorSchemeProvider, ColorScheme, MantineProvider} from '@mantine/core'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Header } from './components/shared'
 import { PATHS } from './meta/paths'
-import { CatalogTab, HomeTab, ProfileTab } from './components/tabs'
+import { HomeTab, ProfileTab } from './components/tabs'
 import {useColorScheme} from "@mantine/hooks";
 import {ModalCashBacks} from "./components/overlays/modal-cash-backs";
-import {storeCashBacks} from "./store/cashbacks-list";
 
 
 const shellStyle = (theme: MantineTheme) => ({
@@ -30,6 +29,7 @@ const App = () => {
             <MantineProvider
                 theme={{
                     colorScheme,
+                    primaryColor: "grape",
                     spacing: { xs: 15, sm: 20, md: 25, lg: 30, xl: 40 },
                     breakpoints: {
                         xs: 576,
