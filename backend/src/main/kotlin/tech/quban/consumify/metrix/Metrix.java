@@ -47,6 +47,11 @@ public class Metrix {
         return c / (a.values().size() + b.values().size() - c);
     }
 
+    /*
+    purchases: Map<user_id,
+                            Map<product_id, overall_product_price>
+                  >
+     */
     void makeRecommendation(Integer userId, Map<Integer, Map<Integer, Double>> purchases, int bestUsers, int bestProducts) {
         TreeMap<Double, Integer> matchesWithUser = new TreeMap<Double, Integer>();
 
@@ -56,6 +61,7 @@ public class Metrix {
                 matchesWithUser.put(distance_cos(purchases.get(userId), curUserMap.getValue()), curUserMap.getKey());
         }
 
+        // get most matching users
         TreeMap<Double, Integer> bestMatchesWithUser = matchesWithUser.entrySet().stream()
                 .limit(bestUsers)
                 .collect(TreeMap::new, (m, e) -> m.put(e.getKey(), e.getValue()), Map::putAll);
@@ -89,6 +95,9 @@ public class Metrix {
         for (Integer product : sim.keySet()) {
             sim.replace(product, sim.get(product)/sim_all);
         }
+        TreeMap<Integer, Double> bestSimilarity = sim.entrySet().stream()
+                .limit(bestProducts)
+                .collect(TreeMap::new, (m, e) -> m.put(e.getKey(), e.getValue()), Map::putAll);
         System.out.printf(sim.toString());
     }
 }
