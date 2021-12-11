@@ -2,8 +2,6 @@ import React from 'react';
 import {
     Grid,
     Col,
-    Pagination,
-    Center,
     Space,
     Button,
     Skeleton,
@@ -21,7 +19,7 @@ const CategoriesRecsBlock = observer(() => {
 
     return (
         <div>
-            <Title order={1}>Рекомендации по категориям</Title>
+            <Title order={3}>Рекомендации по категориям</Title>
             <Space h={"sm"}/>
             {!isFetching &&
             <div>
@@ -48,13 +46,13 @@ const CategoriesRecsBlock = observer(() => {
                     }
                 </Grid>
                 <Space h="md" />
-                <Center>
+                {/*<Center>
                     <Pagination page={currentPage}
                                 onChange={setCurrentPage}
                                 total={total}
                                 radius={"xl"}
                                 siblings={1}/>
-                </Center>
+                </Center>*/}
             </div>
             || <Skeleton height={200} mt={6} radius="xl" />
             }

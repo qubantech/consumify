@@ -1,6 +1,6 @@
 import React from 'react';
 import {storeTotalRecommendations} from "../../store/total-recommendations";
-import {Center, Col, Grid, Pagination, Space, Title} from "@mantine/core";
+import {Col, Grid, Space, Title} from "@mantine/core";
 import {CardInterface} from "../../http/models";
 import CardItem from "../shared/card-item";
 import {observer} from "mobx-react-lite";
@@ -15,11 +15,11 @@ import {observer} from "mobx-react-lite";
 // }
 
 const TotalRecsBlock = observer(() => {
-    const {isFetching, currCards, total, setCurrentPage, currentPage} = storeTotalRecommendations;
+    const {isFetching, currCards} = storeTotalRecommendations;
 
     return (
         <>
-            <Title order={1}>Рекомендовано Вам</Title>
+            <Title order={3}>Рекомендовано Вам</Title>
             <Space h={"sm"}/>
             {
                 !isFetching &&
@@ -34,13 +34,13 @@ const TotalRecsBlock = observer(() => {
                         }
                     </Grid>
                     <Space h="md" />
-                    <Center>
+                    {/*<Center>
                         <Pagination page={currentPage}
                                     onChange={setCurrentPage}
                                     total={total}
                                     radius={"xl"}
                                     siblings={1}/>
-                    </Center>
+                    </Center>*/}
                 </div>
             }
         </>

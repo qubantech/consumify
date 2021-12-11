@@ -14,16 +14,16 @@ export const CardsCashbackCategories = () => {
             <Card radius={"xs"} shadow={"md"}>
                 <Spoiler maxHeight={mdscreen ? 200: 110} showLabel="Полные условия" hideLabel="Скрыть полные условия">
                     <Group noWrap>
-                        <Avatar radius={"xl"}>
+                        <Avatar radius={"lg"} size={"xs"}>
                             MG
                         </Avatar>
                         <Group sx={{width:"100%"}} spacing={"xs"} direction={"column"}>
                             <Text lineClamp={1}>Супермаркеты</Text>
                         </Group>
-                        <Text align={"right"} sx={{width:"100px"}} size={"xl"}>
+                        <Text lineClamp={1} align={"right"} sx={{width:"100px"}} size={"xl"}>
                             5%
                         </Text>
-                        <ActionIcon onClick={()=> setConfirmDelete(0)}>
+                        <ActionIcon size={"xs"} onClick={()=> setConfirmDelete(0)}>
                             <Cross1Icon/>
                         </ActionIcon>
                     </Group>
