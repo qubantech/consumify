@@ -67,7 +67,7 @@ const PromoCodeBlock = () => {
             <Title order={1}>Промокоды</Title>
             <Space/>
             <MediaQuery smallerThan="xs" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '300px'}}>
+                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '400px'}}>
                     {
                         data.map( (item:PromoCodeInterface ) => {
                             return (
@@ -78,8 +78,7 @@ const PromoCodeBlock = () => {
                 </Group>
             </MediaQuery>
 
-
-            <MediaQuery smallerThan="md" largerThan="xs" styles={DISPLAY_NONE}>
+            <MediaQuery smallerThan="sm" largerThan="xs" styles={DISPLAY_NONE}>
                 <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '650px'}}>
                     {
                         data.map( (item:PromoCodeInterface ) => {
@@ -92,7 +91,20 @@ const PromoCodeBlock = () => {
             </MediaQuery>
 
 
-            <MediaQuery smallerThan="xl" largerThan="md" styles={DISPLAY_NONE}>
+            <MediaQuery smallerThan="md" largerThan="sm" styles={DISPLAY_NONE}>
+                <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '900px'}}>
+                    {
+                        data.map( (item:PromoCodeInterface ) => {
+                            return (
+                                <PromoCode promoCode={ item }/>
+                            )
+                        })
+                    }
+                </Group>
+            </MediaQuery>
+
+
+            <MediaQuery largerThan="md" styles={DISPLAY_NONE}>
                 <Group className={'hide-scroll'} align='top' noWrap={true} style={{overflowX: "auto", width: '920px'}}>
                     {
                         data.map( (item:PromoCodeInterface ) => {
@@ -103,6 +115,7 @@ const PromoCodeBlock = () => {
                     }
                 </Group>
             </MediaQuery>
+
             <Space/>
         </div>
     );
