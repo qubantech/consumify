@@ -28,9 +28,7 @@ const TotalRecsBlock = observer(() => {
                         {currCards && (
                             currCards.map((card: CardInterface) =>
                                 <Col key={card.id} span={12} xs={6} sm={4} md={3} lg={3} xl={3}>
-                                    <Center>
-                                        <CardItem card={card}/>
-                                    </Center>
+                                    <CardItem card={card}/>
                                 </Col>
                             ))
                         }
