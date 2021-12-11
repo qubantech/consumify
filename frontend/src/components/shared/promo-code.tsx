@@ -1,15 +1,18 @@
-import React from 'react';
-import {Card, Title, Text, Space, Paper, Center, Group, Transition} from '@mantine/core';
-import {useHover} from '@mantine/hooks';
-import { PromoCodeInterface } from "../@types";
+import React from 'react'
+
+import { Card, Title, Text, Space, Paper, Center, Group, Transition } from '@mantine/core'
+import { useHover } from '@mantine/hooks'
+import { PromoCodeInterface } from '../@types'
 
 
-const PromoCode = (props: {
+export const PromoCode = (props: {
     promoCode: PromoCodeInterface
 }) => {
-    const {hovered, ref} = useHover();
+    
+    const { hovered, ref } = useHover()
+    
     return (
-        <div style={{width: '125px', position: 'relative'}} ref={ref}>
+        <div style={{ width: '125px', position: 'relative' }} ref={ref}>
             <Card shadow='sm' padding='xs' sx={
                 (theme) => ({
                     height: '140px',
@@ -21,7 +24,8 @@ const PromoCode = (props: {
                     })}>{props.promoCode.shop}</Text>
                 <Transition mounted={!hovered} transition='pop' duration={300} timingFunction='ease'>
                     {(styles) =>
-                        <Group direction={'row'} spacing={10} style={{...styles, position: 'absolute', top: 50, width: '100px'}}>
+                        <Group direction={'row'} spacing={10}
+                               style={{ ...styles, position: 'absolute', top: 50, width: '100px' }}>
                             <Text size='xs' sx={
                                 (theme) => ({
                                     color: theme.colorScheme === 'light' ? '#2C2E33' : '#C1C2C5',
@@ -41,7 +45,7 @@ const PromoCode = (props: {
                         <Group direction={'column'} position={'center'} style={styles}>
                             <Paper padding={3} shadow={'sm'}>
                                 <Center>
-                                    <Text size={"sm"}>{props.promoCode.code}</Text>
+                                    <Text size={'sm'}>{props.promoCode.code}</Text>
                                 </Center>
                             </Paper>
                             <Text size={'xs'} color={'gray'}>До 31 декабря</Text>
@@ -50,7 +54,5 @@ const PromoCode = (props: {
                 </Transition>
             </Card>
         </div>
-    );
-};
-
-export default PromoCode;
+    )
+}

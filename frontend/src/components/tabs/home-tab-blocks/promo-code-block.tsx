@@ -1,7 +1,7 @@
 import React from 'react';
-import {Group, Space, Spoiler, Title} from "@mantine/core";
-import PromoCode from "../shared/promo-code";
-import {PromoCodeInterface} from "../../http/models";
+import { Group, Space, Spoiler, Title } from '@mantine/core';
+import { PromoCode } from '../../shared';
+import { PromoCodeInterface } from '../../@types';
 
 
 const data = [
@@ -73,11 +73,11 @@ const data = [
 export const PromoCodeBlock = () => {
 
     return (
-        <div style={{width: '100%'}}>
+        <div style={{ width: '100%' }}>
             <Title order={3}>Промокоды</Title>
             <Space/>
-            <Spoiler maxHeight={170} hideLabel={"Свернуть"} showLabel={"Показать все предложения"}>
-                <Group spacing={"sm"} position='center'>
+            <Spoiler maxHeight={170} hideLabel={'Свернуть'} showLabel={'Показать все предложения'}>
+                <Group spacing={'sm'} position='center'>
                     {
                         data.map((item: PromoCodeInterface) => {
                             return (
