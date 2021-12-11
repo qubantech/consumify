@@ -1,14 +1,13 @@
 package tech.quban.consumify.entity
 
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.ManyToOne
+import javax.persistence.*
 
 @Entity
 data class CategoryCashbackSubscription(
     @Id
-    val id: Long,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long?,
     @ManyToOne
     val categoryCashback: CategoryCashback,
     val subscribedUntil: Date

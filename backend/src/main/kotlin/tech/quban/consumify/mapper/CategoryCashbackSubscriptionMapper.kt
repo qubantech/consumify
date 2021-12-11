@@ -4,7 +4,7 @@ import tech.quban.consumify.dto.CategoryCashbackSubscriptionDto
 import tech.quban.consumify.entity.CategoryCashbackSubscription
 
 fun CategoryCashbackSubscription.toCategoryCashbackSubscriptionDto() = CategoryCashbackSubscriptionDto(
-    id = id,
+    id = id ?: 0,
     categoryCashback = categoryCashback.toCategoryCashbackDto(),
     subscribedUntil = subscribedUntil.time
 )

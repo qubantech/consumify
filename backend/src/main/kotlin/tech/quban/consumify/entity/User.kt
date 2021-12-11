@@ -12,8 +12,8 @@ data class User(
         joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id")],
         inverseJoinColumns = [JoinColumn(name = "cashback_id", referencedColumnName = "id")]
     )
-    val sellerCashbacks: List<SellerCashback>,
+    val sellerCashbacks: MutableList<SellerCashback>,
 
     @OneToMany(fetch = FetchType.LAZY)
-    val categoryCashbackSubscriptions: List<CategoryCashbackSubscription>
+    val categoryCashbackSubscriptions: MutableList<CategoryCashbackSubscription>
 )
