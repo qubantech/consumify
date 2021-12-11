@@ -74,7 +74,7 @@ export const PromoCodeBlock = () => {
 
     return (
         <div style={{ width: '100%' }}>
-            <Title order={3}>Промокоды</Title>
+            <Title order={2}>Промокоды</Title>
             <Space/>
             <Spoiler maxHeight={170} hideLabel={'Свернуть'} showLabel={'Показать все предложения'}>
                 <Group spacing={'sm'} position='center'>

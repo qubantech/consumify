@@ -10,16 +10,19 @@ import {
     Group,
     Title
 } from '@mantine/core';
-import { storeCategoriesRecommendations } from '../../../store';
-import { CardItem } from '../../shared/card-item';
-import { observer } from 'mobx-react-lite';
+
+import { CardItem } from '../../shared';
 import { CardInterface, FilterInterface } from '../../@types';
+
+import { observer } from 'mobx-react-lite';
+import { storeCategoriesRecommendations } from '../../../store';
+
 
 export const CategoriesRecommendationsBlock = observer(() => {
 
     const {
         isFetching,
-        currCards,
+        currentCards,
         total,
         setCurrentPage,
         currentPage,
@@ -30,7 +33,7 @@ export const CategoriesRecommendationsBlock = observer(() => {
 
     return (
         <div>
-            <Title order={1}>На основе ваших предпочтений</Title>
+            <Title order={2}>На основе ваших предпочтений</Title>
             <Space/>
             <Skeleton visible={isFetching}>
                 <div>
@@ -48,8 +51,8 @@ export const CategoriesRecommendationsBlock = observer(() => {
                     </div>
                     <Space h='md'/>
                     <Grid gutter={'sm'} justify='center'>
-                        {currCards && (
-                            currCards.map((card: CardInterface) =>
+                        {currentCards && (
+                            currentCards.map((card: CardInterface) =>
                                 <Col key={card.id} span={12} xs={6} sm={4} md={3} lg={3} xl={3}>
                                     <CardItem card={card}/>
                                 </Col>

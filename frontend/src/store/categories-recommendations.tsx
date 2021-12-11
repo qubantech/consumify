@@ -58,24 +58,24 @@ const categoriesRecommendations = () => {
     const store = {
         isFetching: false,
         cards: cardsInitState,
-        currCards: cardsInitState.slice(0, inPage),
+        currentCards: cardsInitState.slice(0, inPage),
         total: 2,
         currentPage: 1,
         setCurrentPage (page: number) {
-            store.currCards = store.cards.slice(inPage * (page - 1), inPage * page)
+            store.currentCards = store.cards.slice(inPage * (page - 1), inPage * page)
             store.currentPage = page
         },
         filterValue: 'American',
         filterOptions: [
-            { label: 'Супермаркеты', value: 'american' },
-            { label: 'Автозаправки', value: 'british' },
-            { label: 'Одежда', value: 'russian' },
-            { label: 'Мебель и бытовая техника', value: 'q6' },
-            { label: 'Фастфуд', value: 'q' },
-            { label: 'Игры', value: 'q2' },
-            { label: 'Апетеки', value: 'q3' },
-            { label: 'Зоомагазины', value: 'q4' },
-            { label: 'Автосервисы', value: 'q5' },
+            { label: 'Супермаркеты', value: 'supermarkets' },
+            { label: 'Автозаправки', value: 'gas' },
+            { label: 'Одежда', value: 'clothes' },
+            { label: 'Мебель и бытовая техника', value: 'furniture and household appliances' },
+            { label: 'Фастфуд', value: 'fast food' },
+            { label: 'Игры', value: 'games' },
+            { label: 'Апетеки', value: 'pharmacies' },
+            { label: 'Зоомагазины', value: 'pet shops' },
+            { label: 'Автосервисы', value: 'automobile services' },
         ],
         setFilterValue (value:string) {
             store.filterValue = value
