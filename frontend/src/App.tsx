@@ -1,15 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-import {AppShell, MantineTheme, ColorSchemeProvider, ColorScheme, MantineProvider} from '@mantine/core'
-import {BrowserRouter, Routes, Route, useLocation, Navigate} from 'react-router-dom'
+import { AppShell, MantineTheme, ColorSchemeProvider, ColorScheme, MantineProvider } from '@mantine/core'
+import { useColorScheme, useMediaQuery } from "@mantine/hooks";
+import { HomeTab, ProfileTab, LoginTab, ModalCashBacks, Header } from './components'
 
-import { Header } from './components/shared'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
+
 import { PATHS } from './misc/paths'
-import { HomeTab, ProfileTab } from './components/tabs'
-import {useColorScheme, useMediaQuery} from "@mantine/hooks";
-import {ModalCashBacks} from "./components/overlays/modal-cash-backs";
-import {LoginTab} from "./components/tabs/login-tab";
-import {storeProfile} from "./store/profile";
+import { storeProfile } from "./store";
 
 
 const shellStyle = (theme: MantineTheme) => ({
@@ -18,16 +16,17 @@ const shellStyle = (theme: MantineTheme) => ({
     },
 })
 
+
 function RequireAuth({ children }: { children: JSX.Element }) {
-    const {id} = storeProfile;
+    const { id } = storeProfile;
     let location = useLocation();
 
-    if (id == 0) {
+    if (id === 0) {
         // Redirect them to the /login page, but save the current location they were
         // trying to go to when they were redirected. This allows us to send them
         // along to that page after they login, which is a nicer user experience
         // than dropping them off on the home page.
-        return <Navigate to="/login" state={{ from: location }} />;
+        return <Navigate to="/login" state={{ from: location }}/>;
     }
 
     return children;
@@ -35,13 +34,16 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 
 
 const App = () => {
+
     const preferredColorScheme = useColorScheme();
-    const [colorScheme, setColorScheme] = useState(preferredColorScheme);
+    const [ colorScheme, setColorScheme ] = useState(preferredColorScheme);
+
     const toggleColorScheme = (value?: ColorScheme) => {
         console.log(colorScheme)
         setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
     }
-    const mdscreen = useMediaQuery('(min-width: 992px)');
+
+    const mdScreen = useMediaQuery('(min-width: 992px)');
 
     return (
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -60,13 +62,13 @@ const App = () => {
                 }}>
                 <BrowserRouter>
                     <ModalCashBacks/>
-                    <AppShell style={{paddingTop: mdscreen ? 66 : 0, paddingBottom: mdscreen ? 0 : 49}} header={<Header/>} styles={shellStyle}>
+                    <AppShell style={{ paddingTop: mdScreen ? 66 : 0, paddingBottom: mdScreen ? 0 : 49 }}
+                              header={<Header/>} styles={shellStyle}>
                         <Routes>
                             <Route path={PATHS.LOGIN}
                                    element={<LoginTab/>}/>
                             <Route path={PATHS.HOME}
                                    element={<HomeTab/>}/>
-                            {/*<Route path={PATHS.CATALOG} element={<CatalogTab/>}/>*/}
                             <Route path={PATHS.PROFILE}
                                    element={
                                        <RequireAuth>

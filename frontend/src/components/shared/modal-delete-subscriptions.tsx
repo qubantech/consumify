@@ -4,7 +4,7 @@ import { Button, Group, Modal } from '@mantine/core';
 import { CheckIcon, Cross1Icon } from '@radix-ui/react-icons';
 
 import { observer } from 'mobx-react-lite';
-import { storeCashBacks } from '../../store/cashbacks-list';
+import { storeCashBacks } from '../../store';
 
 
 export const ModalDeleteSubscriptions = observer(() => {

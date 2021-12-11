@@ -1,31 +1,32 @@
-import React from 'react';
-import {Card, Divider, Group, Space, Text} from '@mantine/core';
-import { storeCheck } from "../../store/check";
+import React from 'react'
+
+import { Card, Divider, Group, Space, Text } from '@mantine/core'
+import { storeCheck } from '../../../store'
 
 
+export const Check = () => {
 
+    const { isFetching, mcc, items, shop, total } = storeCheck
 
-const Check = () => {
-    const { isFetching, mcc, items, shop, total } = storeCheck;
     return (
-        <div style={{width: '300px'}}>
+        <div style={{ width: '300px' }}>
             {
                 !isFetching &&
-                <Card shadow='sm' padding='sm' >
-                    <Text>mcc: { mcc }</Text>
-                    <Text>Магазин: { shop } </Text>
+                <Card shadow='sm' padding='sm'>
+                    <Text>mcc: {mcc}</Text>
+                    <Text>Магазин: {shop} </Text>
                     <Space/>
                     <Divider/>
                     <Space/>
                     {
-                        items.map( (item) => {
+                        items.map((item) => {
                             return (
                                 <Group position='apart'>
                                     <Text>
-                                        { item.name }
+                                        {item.name}
                                     </Text>
                                     <Text>
-                                        { item.price }₽
+                                        {item.price}₽
                                     </Text>
                                 </Group>
                             )
@@ -34,11 +35,9 @@ const Check = () => {
                     <Space/>
                     <Divider/>
                     <Space/>
-                    <Text align='right' size='xl'>Итог: { total }₽</Text>
+                    <Text align='right' size='xl'>Итог: {total}₽</Text>
                 </Card>
             }
         </div>
-    );
-};
-
-export default Check;
+    )
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
     Center,
@@ -13,23 +13,29 @@ import {
     Text,
     Title,
     useMantineTheme
-} from '@mantine/core';
+} from '@mantine/core'
 
-import { observer } from 'mobx-react-lite';
-import { storeCashBacks } from '../../store/cashbacks-list';
-import { storeProfile } from '../../store/profile';
+import { observer } from 'mobx-react-lite'
+import { storeCashBacks, storeProfile } from '../../store'
 
-import mir from '../../assets/mir-logo.svg'
+import MirLogo from '../../assets/mir-logo.svg'
 
-import { CardsCashbackPartners } from '../common/cards-cashback-partners';
-import { CardsCashbackCategories } from '../common/cards-cashback-categories';
-import { SelectSubscriptions } from '../common/select-subscriptions';
+import {
+    CardsCashbackPartners,
+    CardsCashbackCategories,
+    SelectSubscriptions
+} from '../shared'
 
 
 export const ModalCashBacks = observer(() => {
 
     const { isOpen, setIsOpen } = storeCashBacks
-    const theme = useMantineTheme();
+
+    const theme = useMantineTheme()
+
+
+    const onModalClose = () => setIsOpen(false)
+
 
     return (
         <Modal
@@ -38,14 +44,14 @@ export const ModalCashBacks = observer(() => {
             transitionTimingFunction='ease'
             opened={isOpen}
             size={'xl'}
-            onClose={() => setIsOpen(false)}
+            onClose={onModalClose}
             title={'Cashbacks'}>
             {storeProfile.id != 0 ?
                 (<>
                     <Center>
                         <Paper color={'green'} padding='xs' shadow='xl' radius='md' withBorder>
                             <Group>
-                                <Image src={mir} height={20}/>
+                                <Image src={MirLogo} height={20}/>
                                 <Group>
                                     <Text>****4956</Text>
                                     <Text color={'gray'}>

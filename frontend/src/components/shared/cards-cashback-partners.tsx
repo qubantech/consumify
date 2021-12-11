@@ -5,7 +5,7 @@ import { useMediaQuery } from '@mantine/hooks';
 export const CardsCashbackPartners = () => {
 
     const mdScreen = useMediaQuery('(min-width: 992px)');
-    
+
     return (
         <Card radius={'xs'} shadow={'md'}>
             <Spoiler maxHeight={mdScreen ? 200 : 40} showLabel='Полные условия' hideLabel='Скрыть полные условия'>
@@ -28,5 +28,5 @@ export const CardsCashbackPartners = () => {
             </Spoiler>
         </Card>
     )
-    
+
 }

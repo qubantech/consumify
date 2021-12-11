@@ -1,7 +1,7 @@
 import React from 'react';
-import {Card, Title, Text, Space, Paper, Center, Group, Transition} from "@mantine/core";
-import {PromoCodeInterface} from "../../http/models";
-import {useHover} from "@mantine/hooks";
+import {Card, Title, Text, Space, Paper, Center, Group, Transition} from '@mantine/core';
+import {useHover} from '@mantine/hooks';
+import { PromoCodeInterface } from "../@types";
 
 
 const PromoCode = (props: {
@@ -9,19 +9,19 @@ const PromoCode = (props: {
 }) => {
     const {hovered, ref} = useHover();
     return (
-        <div style={{width: '125px', position: "relative"}} ref={ref}>
+        <div style={{width: '125px', position: 'relative'}} ref={ref}>
             <Card shadow='sm' padding='xs' sx={
                 (theme) => ({
-                    height: "140px",
+                    height: '140px',
                     background: theme.colorScheme === 'dark' ? `linear-gradient(to bottom right, ${props.promoCode.color} 1%, #373A40 )` : `linear-gradient(to bottom right, ${props.promoCode.color} 1%, white )`,
                 })}>
                 <Text size='md' weight='bold' sx={
                     (theme) => ({
                         color: theme.colorScheme === 'light' ? '#000' : '#C1C2C5',
                     })}>{props.promoCode.shop}</Text>
-                <Transition mounted={!hovered} transition="pop" duration={300} timingFunction="ease">
+                <Transition mounted={!hovered} transition='pop' duration={300} timingFunction='ease'>
                     {(styles) =>
-                        <Group direction={"row"} spacing={10} style={{...styles, position: "absolute", top: 50, width: '100px'}}>
+                        <Group direction={'row'} spacing={10} style={{...styles, position: 'absolute', top: 50, width: '100px'}}>
                             <Text size='xs' sx={
                                 (theme) => ({
                                     color: theme.colorScheme === 'light' ? '#2C2E33' : '#C1C2C5',
@@ -36,15 +36,15 @@ const PromoCode = (props: {
                         </Group>}
                 </Transition>
                 <Space h='xs'/>
-                <Transition mounted={hovered} transition="pop" duration={300} timingFunction="ease">
+                <Transition mounted={hovered} transition='pop' duration={300} timingFunction='ease'>
                     {(styles) =>
-                        <Group direction={"column"} position={'center'} style={styles}>
-                            <Paper padding={3} shadow={"sm"}>
+                        <Group direction={'column'} position={'center'} style={styles}>
+                            <Paper padding={3} shadow={'sm'}>
                                 <Center>
-                                    <Text size={"sm"}>AB20SAS</Text>
+                                    <Text size={'sm'}>AB20SAS</Text>
                                 </Center>
                             </Paper>
-                            <Text size={"xs"} color={"gray"}>До 31 декабря</Text>
+                            <Text size={'xs'} color={'gray'}>До 31 декабря</Text>
                         </Group>
                     }
                 </Transition>

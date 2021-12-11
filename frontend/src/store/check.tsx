@@ -1,13 +1,13 @@
-import { makeAutoObservable, runInAction } from "mobx";
-import { CheckItemInterface } from "../http/models";
+import { makeAutoObservable, runInAction } from 'mobx'
+import { CheckItemInterface } from "../components/@types";
 
-async function getChecks (param: string) {
-    let checksList: CheckItemInterface[] = [];
+async function getChecks(param: string) {
+    let checksList: CheckItemInterface[] = []
 
     return checksList
 }
 
-const itemsInitState:CheckItemInterface[] = [
+const itemsInitState: CheckItemInterface[] = [
     {
         name: "Колбаса",
         price: 100
@@ -32,8 +32,7 @@ const itemsInitState:CheckItemInterface[] = [
         name: "Пиво",
         price: 100
     },
-];
-
+]
 
 
 const check = () => {

@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import '../http/models/card-interface';
-import { CardInterface } from "../http/models";
+import '../components/@types/card-interface';
+import { CardInterface } from "../components/@types";
 
 async function getCards (param: string) {
     let cardsList: CardInterface[] = [];

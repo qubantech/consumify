@@ -1,14 +1,15 @@
-import React from 'react';
-import { storeTotalRecommendations } from "../../store/total-recommendations";
-import { Center, Col, Grid, Pagination, Skeleton, Space, Title } from "@mantine/core";
-import { CardInterface } from "../../http/models";
-import CardItem from "../shared/card-item";
-import { observer } from "mobx-react-lite";
+import React from 'react'
+import { storeTotalRecommendations } from "../../../store"
+import { Center, Col, Grid, Pagination, Skeleton, Space, Title } from "@mantine/core"
+
+import { CardItem } from "../../shared/card-item"
+import { observer } from "mobx-react-lite"
+import { CardInterface } from "../../@types"
 
 
-export const TotalRecomendationsBlock = observer(() => {
+export const TotalRecommendationsBlock = observer(() => {
 
-    const { isFetching, currCards, total, setCurrentPage, currentPage } = storeTotalRecommendations;
+    const { isFetching, currCards, total, setCurrentPage, currentPage } = storeTotalRecommendations
 
     return (
         <>

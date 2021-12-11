@@ -1,17 +1,24 @@
+import React from 'react';
+
 import { ActionIcon, Button, Group, Space, MediaQuery, useMantineColorScheme } from '@mantine/core';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import React from 'react';
+
 import { observer } from 'mobx-react-lite';
-import { ProfileIconHeader } from '../shared/profile-icon-header';
+
+import { ProfileIconHeader } from '../../shared/profile-icon-header';
 import { useNavigate } from 'react-router-dom';
-import { storeProfile } from '../../store/profile';
-import { DISPLAY_NONE } from '../../misc/paths';
+import { storeProfile } from '../../../store';
+import { DISPLAY_NONE } from '../../../misc/paths';
 
 
 export const StartAndProfileBlock = observer(() => {
+
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+
     const dark = colorScheme === 'dark';
+
     let navigate = useNavigate();
+
     const { quitProfile } = storeProfile
 
     const onQuit = () => {

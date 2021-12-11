@@ -1,15 +1,15 @@
-import { TotalRecomendationsBlock } from '../home-tab-blocks/total-recomendations-block';
-import { CategoriesRecomendationsBlock } from '../home-tab-blocks/categories-recomendations-block';
-import { StartAndProfileBlock } from '../home-tab-blocks/start-and-profile-block';
-import { PromoCodeBlock } from '../home-tab-blocks/promo-code-block';
+import { TotalRecommendationsBlock } from './home-tab-blocks';
+import { CategoriesRecommendationsBlock } from './home-tab-blocks';
+import { StartAndProfileBlock } from './home-tab-blocks';
+import { PromoCodeBlock } from './home-tab-blocks';
 
-import { Container, Space, Title } from '@mantine/core';
+import { Container, Space } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 
 export const HomeTab = () => {
     
-    const mdscreen = useMediaQuery('(min-width: 992px)');
+    const mdScreen = useMediaQuery('(min-width: 992px)');
     
     return (
         <Container className={'home-tab'} padding='sm' sx={
@@ -29,11 +29,11 @@ export const HomeTab = () => {
                 },
             })
         }>
-            {!mdscreen && <StartAndProfileBlock/>}
+            {!mdScreen && <StartAndProfileBlock/>}
             <PromoCodeBlock/>
-            <TotalRecomendationsBlock/>
+            <TotalRecommendationsBlock/>
             <Space/>
-            <CategoriesRecomendationsBlock/>
+            <CategoriesRecommendationsBlock/>
         </Container>
     )
 }

@@ -18,7 +18,7 @@ import {
     SunIcon,
     MoonIcon
 } from '@radix-ui/react-icons'
-import { storeCashBacks } from "../../store/cashbacks-list";
+import { storeCashBacks } from "../../store";
 import { ProfileIconHeader } from "./profile-icon-header";
 
 const ICON_SIZE = { height: 20, width: 20 }

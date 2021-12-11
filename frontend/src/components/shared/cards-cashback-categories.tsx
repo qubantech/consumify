@@ -4,18 +4,19 @@ import { ActionIcon, Avatar, Card, Group, Space, Spoiler, Text } from '@mantine/
 import { useMediaQuery } from '@mantine/hooks';
 import { Cross1Icon } from '@radix-ui/react-icons';
 
-import { storeCashBacks } from '../../store/cashbacks-list';
+import { storeCashBacks } from '../../store';
 import { ModalDeleteSubscriptions } from './modal-delete-subscriptions';
 
 export const CardsCashbackCategories = () => {
-    const mdscreen = useMediaQuery('(min-width: 992px)');
+
+    const mdScreen = useMediaQuery('(min-width: 992px)');
     const { confirmDelete, setConfirmDelete } = storeCashBacks
 
     return (
         <>
             <ModalDeleteSubscriptions/>
             <Card radius={'xs'} shadow={'md'}>
-                <Spoiler maxHeight={mdscreen ? 200 : 110} showLabel='Полные условия' hideLabel='Скрыть полные условия'>
+                <Spoiler maxHeight={mdScreen ? 200 : 110} showLabel='Полные условия' hideLabel='Скрыть полные условия'>
                     <Group noWrap>
                         <Avatar radius={'xl'}>
                             MG
@@ -31,8 +32,8 @@ export const CardsCashbackCategories = () => {
                         </ActionIcon>
                     </Group>
                     <Space h={'xs'}/>
-                    <Group spacing={'xs'} grow direction={mdscreen ? 'row' : 'column'}>
-                        <Text lineClamp={1} align={mdscreen ? 'right' : 'left'} size={'sm'}>
+                    <Group spacing={'xs'} grow direction={mdScreen ? 'row' : 'column'}>
+                        <Text lineClamp={1} align={mdScreen ? 'right' : 'left'} size={'sm'}>
                             199 рублей/месяц
                         </Text>
                         <Text lineClamp={1} size={'xs'} color={'gray'}>
