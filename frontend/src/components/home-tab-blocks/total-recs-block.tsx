@@ -1,6 +1,6 @@
 import React from 'react';
 import {storeTotalRecommendations} from "../../store/total-recommendations";
-import {Center, Col, Grid, Pagination, Space} from "@mantine/core";
+import {Center, Col, Grid, Pagination, Space, Title} from "@mantine/core";
 import {CardInterface} from "../../http/models";
 import CardItem from "../shared/card-item";
 import {observer} from "mobx-react-lite";
@@ -19,6 +19,7 @@ const TotalRecsBlock = observer(() => {
 
     return (
         <>
+            <Title order={1}></Title>
             {
                 !isFetching &&
                 <div>

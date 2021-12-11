@@ -6,7 +6,9 @@ import {
     Center,
     Space,
     Button,
-    Skeleton, Group
+    Skeleton,
+    Group,
+    Title
 } from "@mantine/core";
 import {CardInterface, FilterInterface} from "../../http/models";
 
@@ -19,6 +21,7 @@ const CategoriesRecsBlock = observer(() => {
 
     return (
         <div>
+            <Title order={1}></Title>
             {/*<SegmentedControl
                 fullWidth
                 value={filterValue}
