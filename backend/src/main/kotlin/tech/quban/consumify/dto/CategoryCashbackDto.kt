@@ -7,6 +7,5 @@ import java.math.BigDecimal
 data class CategoryCashbackDto (
     val category: CategoryDto,
     val percent: BigDecimal,
-    val description: String,
-    val subscribedUntil: Long
+    val description: String
 )

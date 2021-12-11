@@ -7,6 +7,5 @@ import tech.quban.consumify.entity.CategoryCashback
 fun CategoryCashback.toCategoryCashbackDto() = CategoryCashbackDto(
     category = category.toCategoryDto(),
     percent = percent,
-    description = description,
-    subscribedUntil = subscribedUntil.time
+    description = description
 )
