@@ -2,6 +2,9 @@ package tech.quban.consumify.controller
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.CachePut
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import tech.quban.consumify.dto.CategoryCashbackSubscriptionDto
@@ -53,7 +56,6 @@ class CashbackController(
         .map { it.toSellerCashbackDto() }
         .collect(Collectors.toList())
 
-
     @GetMapping("/{userId}/category")
     @Operation(
         description = "Returns cashback list for increased cashback subscription."
@@ -91,7 +93,6 @@ class CashbackController(
         userRepository.save(user)
         return ResponseEntity.ok().build()
     }
-
 
     @DeleteMapping("/{userId}/category/{categoryId}")
     @Operation(
