@@ -10,13 +10,21 @@ export const HomeTab = () => {
 
 
     return (
-        <Container padding='sm' sx={
+        <Container className={"home-tab"} padding='sm' sx={
             (theme) => ({
                 paddingTop: 10,
                 paddingBottom: 10,
                 borderRadius: '10px',
                 height: '100%',
-                // backgroundColor: theme.colorScheme === 'dark' ? '' : 'lightgray'
+                '@media (max-width: 768px)': {
+                    maxWidth: '760px',
+                },
+                '@media (max-width: 415px)': {
+                    maxWidth: '374px',
+                },
+                '@media (max-width: 320px)': {
+                    maxWidth: '320px',
+                },
             })}>
             {!mdscreen && <StartAndProfileBlock/>}
             {/*<MediaQuery largerThan={"md"} styles={DISPLAY_NONE}>

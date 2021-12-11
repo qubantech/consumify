@@ -1,8 +1,7 @@
 import React from 'react';
-import { Group, Space, Title, MediaQuery } from "@mantine/core";
+import { Group, Space, Title } from "@mantine/core";
 import PromoCode from "../shared/promo-code";
 import { PromoCodeInterface } from "../../http/models";
-import { DISPLAY_NONE } from "../../misc/paths";
 
 
 const data = [
@@ -64,12 +63,11 @@ const data = [
 
 const PromoCodeBlock = () => {
     return (
-        <div>
+        <div style={{width: '100%'}}>
             <Title order={1}>Промокоды</Title>
             <Space/>
-            <MediaQuery smallerThan="xs" styles={DISPLAY_NONE}>
                 <Group className={'hide-scroll'} align='top' noWrap={true}
-                       style={{ overflowX: "auto", width: '400px' }}>
+                       style={{ overflowX: "auto"}}>
                     {
                         data.map((item: PromoCodeInterface) => {
                             return (
@@ -78,49 +76,6 @@ const PromoCodeBlock = () => {
                         })
                     }
                 </Group>
-            </MediaQuery>
-
-            <MediaQuery smallerThan="sm" largerThan="xs" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true}
-                       style={{ overflowX: "auto", width: '650px' }}>
-                    {
-                        data.map((item: PromoCodeInterface) => {
-                            return (
-                                <PromoCode promoCode={item}/>
-                            )
-                        })
-                    }
-                </Group>
-            </MediaQuery>
-
-
-            <MediaQuery smallerThan="md" largerThan="sm" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true}
-                       style={{ overflowX: "auto", width: '900px' }}>
-                    {
-                        data.map((item: PromoCodeInterface) => {
-                            return (
-                                <PromoCode promoCode={item}/>
-                            )
-                        })
-                    }
-                </Group>
-            </MediaQuery>
-
-
-            <MediaQuery largerThan="md" styles={DISPLAY_NONE}>
-                <Group className={'hide-scroll'} align='top' noWrap={true}
-                       style={{ overflowX: "auto", width: '920px' }}>
-                    {
-                        data.map((item: PromoCodeInterface) => {
-                            return (
-                                <PromoCode promoCode={item}/>
-                            )
-                        })
-                    }
-                </Group>
-            </MediaQuery>
-
             <Space/>
         </div>
     );
