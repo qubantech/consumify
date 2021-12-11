@@ -16,18 +16,12 @@ import {storeCategoriesRecommendations} from "../../store/categories-recommendat
 import CardItem from "../shared/card-item";
 import {observer} from "mobx-react-lite";
 
-const CategoriesRecsBlock = observer(() => {
+export const CategoriesRecomendationsBlock = observer(() => {
     const {isFetching, currCards, total, setCurrentPage, currentPage, filterOptions, filterValue, setFilterValue} = storeCategoriesRecommendations
 
     return (
         <div>
             <Title order={1}></Title>
-            {/*<SegmentedControl
-                fullWidth
-                value={filterValue}
-                // onChange={changeFilter}
-                data={filterOptions}
-            />*/}
             {!isFetching &&
             <div>
                 <div>
@@ -66,5 +60,3 @@ const CategoriesRecsBlock = observer(() => {
         </div>
     );
 });
-
-export default CategoriesRecsBlock;

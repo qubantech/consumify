@@ -71,7 +71,8 @@ const App = () => {
                                    element={
                                        <RequireAuth>
                                            <ProfileTab/>
-                                       </RequireAuth>}/>
+                                       </RequireAuth>
+                                   }/>
                         </Routes>
                     </AppShell>
                 </BrowserRouter>

@@ -1,24 +1,32 @@
-import {Button, Group, Modal} from "@mantine/core";
-import {storeCashBacks} from "../../store/cashbacks-list";
-import {observer} from "mobx-react-lite";
-import { CheckIcon, Cross1Icon} from "@radix-ui/react-icons";
+import React from 'react';
+
+import { Button, Group, Modal } from '@mantine/core';
+import { CheckIcon, Cross1Icon } from '@radix-ui/react-icons';
+
+import { observer } from 'mobx-react-lite';
+import { storeCashBacks } from '../../store/cashbacks-list';
+
 
 export const ModalDeleteSubscriptions = observer(() => {
-    const {confirmDelete, deleteSubscription, setConfirmDelete} = storeCashBacks
+
+    const { confirmDelete, deleteSubscription, setConfirmDelete } = storeCashBacks
+
+
     return (
         <Modal
             zIndex={1000}
             opened={confirmDelete !== -1}
-            size={"xs"}
             onClose={() => setConfirmDelete(-1)}
-            title={"Точно хотите отменить подписку?"}>
+            title={'Точно хотите отменить подписку?'}>
+            size={'xs'}
             <Group grow>
-                <Button color={"green"}
+                <Button color={'green'}
                         leftIcon={<Cross1Icon/>}
-                        onClick={() => setConfirmDelete(-1)}>
+                        onClick={() => setConfirmDelete(-1)}
+                >
                     Нет
                 </Button>
-                <Button color={"red"}
+                <Button color={'red'}
                         leftIcon={<CheckIcon/>}
                         onClick={() => deleteSubscription(confirmDelete)}
                 >
@@ -27,4 +35,5 @@ export const ModalDeleteSubscriptions = observer(() => {
             </Group>
         </Modal>
     )
+
 })

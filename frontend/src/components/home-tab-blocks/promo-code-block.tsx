@@ -1,6 +1,6 @@
 import React from 'react';
 import { Group, Space, Title } from "@mantine/core";
-import PromoCode from "../shared/promo-code";
+import { PromoCode } from "../shared/promo-code";
 import { PromoCodeInterface } from "../../http/models";
 
 
@@ -61,24 +61,24 @@ const data = [
     },
 ]
 
-const PromoCodeBlock = () => {
+export const PromoCodeBlock = () => {
+
     return (
-        <div style={{width: '100%'}}>
-            <Title order={1}>Промокоды</Title>
+        <div style={{ width: '100%' }}>
+            <Title order={1}>
+                Промокоды
+            </Title>
             <Space/>
-                <Group className={'hide-scroll'} align='top' noWrap={true}
-                       style={{ overflowX: "auto"}}>
-                    {
-                        data.map((item: PromoCodeInterface) => {
-                            return (
-                                <PromoCode promoCode={item}/>
-                            )
-                        })
-                    }
-                </Group>
+            <Group className={'hide-scroll'} align='top' noWrap={true} style={{ overflowX: "auto" }}>
+                {
+                    data.map((item: PromoCodeInterface) => {
+                        return (
+                            <PromoCode promoCode={item}/>
+                        )
+                    })
+                }
+            </Group>
             <Space/>
         </div>
-    );
-};
-
-export default PromoCodeBlock;
+    )
+}

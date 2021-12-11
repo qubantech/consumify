@@ -1,16 +1,18 @@
-import TotalRecsBlock from "../home-tab-blocks/total-recs-block";
-import CategoriesRecsBlock from "../home-tab-blocks/categories-recs-block";
-import {Container, Space, Title} from "@mantine/core";
-import {StartAndProfileBlock} from "../home-tab-blocks/start-and-profile-block";
-import {useMediaQuery} from "@mantine/hooks";
-import PromoCodeBlock from "../home-tab-blocks/promo-code-block";
+import { TotalRecomendationsBlock } from '../home-tab-blocks/total-recomendations-block';
+import { CategoriesRecomendationsBlock } from '../home-tab-blocks/categories-recomendations-block';
+import { StartAndProfileBlock } from '../home-tab-blocks/start-and-profile-block';
+import { PromoCodeBlock } from '../home-tab-blocks/promo-code-block';
+
+import { Container, Space, Title } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+
 
 export const HomeTab = () => {
+    
     const mdscreen = useMediaQuery('(min-width: 992px)');
-
-
+    
     return (
-        <Container className={"home-tab"} padding='sm' sx={
+        <Container className={'home-tab'} padding='sm' sx={
             (theme) => ({
                 paddingTop: 10,
                 paddingBottom: 10,
@@ -25,15 +27,13 @@ export const HomeTab = () => {
                 '@media (max-width: 320px)': {
                     maxWidth: '320px',
                 },
-            })}>
+            })
+        }>
             {!mdscreen && <StartAndProfileBlock/>}
-            {/*<MediaQuery largerThan={"md"} styles={DISPLAY_NONE}>
-                <StartAndProfileBlock/>
-            </MediaQuery>*/}
             <PromoCodeBlock/>
-            <TotalRecsBlock/>
+            <TotalRecomendationsBlock/>
             <Space/>
-            <CategoriesRecsBlock/>
+            <CategoriesRecomendationsBlock/>
         </Container>
     )
 }
