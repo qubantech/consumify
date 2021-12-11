@@ -1,9 +1,17 @@
-import {Container, Group, Avatar, Text, Button, Grid, Col, Space} from "@mantine/core";
+import {
+    Container,
+    Space,
+    useMantineColorScheme
+} from "@mantine/core";
 import {storeProfile} from "../../store/profile";
 import Check from "../profile-tab-blocks/check";
+import React from "react";
+import {StartAndProfileBlock} from "../home-tab-blocks/start-and-profile-block";
 
 export const ProfileTab = ( ) => {
-    const {isFetching, id, checks} = storeProfile;
+    const {isFetching, id, quitProfile} = storeProfile;
+    const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+    const dark = colorScheme === 'dark';
 
     return (
         <>
@@ -18,13 +26,7 @@ export const ProfileTab = ( ) => {
                         // backgroundColor: theme.colorScheme === 'dark' ? '' : 'lightgray'
                     })}
                 >
-                    <Group position='apart'>
-                        <Group spacing='xs'>
-                            <Avatar radius='xl'/>
-                            <Text>@{ id }</Text>
-                        </Group>
-                        <Button >Выйти</Button>
-                    </Group>
+                    <StartAndProfileBlock/>
                     <Space/>
                     <Check/>
                     {/*<Grid>*/}

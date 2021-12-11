@@ -19,6 +19,7 @@ import mir from "../../meta/mir-logo.svg"
 import {CardsCashbackPartners} from "../common/cards-cashback-partners";
 import {CardsCashbackCategories} from "../common/cards-cashback-categories";
 import {SelectSubscriptions} from "../common/select-subscriptions";
+import {storeProfile} from "../../store/profile";
 
 export const ModalCashBacks = observer(() => {
 
@@ -34,7 +35,9 @@ export const ModalCashBacks = observer(() => {
             size={"xl"}
             onClose={() => setIsOpen(false)}
             title={"Cashbacks"}>
-            <Center>
+            {storeProfile.id != 0 ?
+            (<>
+                <Center>
                 <Paper color={"green"} padding="xs" shadow="xl" radius="md" withBorder>
                     <Group>
                         <Image src={mir} height={20}/>
@@ -89,6 +92,10 @@ export const ModalCashBacks = observer(() => {
                     <CardsCashbackCategories/>
                 </Tabs.Tab>
             </Tabs>
+            </>)
+            :
+                (<Text> You not authorized :(</Text>)
+            }
         </Modal>
 
     );

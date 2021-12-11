@@ -1,28 +1,25 @@
-import { SunIcon, MoonIcon} from "@radix-ui/react-icons";
-import {useMantineColorScheme, ActionIcon} from "@mantine/core";
-
-import {observer} from "mobx-react-lite";
 import TotalRecsBlock from "../home-tab-blocks/total-recs-block";
 import CategoriesRecsBlock from "../home-tab-blocks/categories-recs-block";
+import {Container} from "@mantine/core";
+import {StartAndProfileBlock} from "../home-tab-blocks/start-and-profile-block";
+import {useMediaQuery} from "@mantine/hooks";
 
-export const HomeTab = observer(() => {
-    const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-    const dark = colorScheme === 'dark';
+export const HomeTab = () => {
+    const mdscreen = useMediaQuery('(min-width: 992px)');
 
     return (
-        <>
-            <ActionIcon
-                size={"lg"}
-                variant="outline"
-                onClick={() => toggleColorScheme()}
-                title="Toggle color scheme"
-            >
-                {dark ? (
-                    <SunIcon/>
-                ): (
-                    <MoonIcon/>
-                )}
-            </ActionIcon>
+        <Container size='sm' padding='sm' sx={
+            (theme) => ({
+                paddingTop: 10,
+                paddingBottom: 10,
+                borderRadius: '10px',
+                height: '100%',
+                // backgroundColor: theme.colorScheme === 'dark' ? '' : 'lightgray'
+            })}>
+            {!mdscreen && <StartAndProfileBlock/>}
+            {/*<MediaQuery largerThan={"md"} styles={DISPLAY_NONE}>
+                <StartAndProfileBlock/>
+            </MediaQuery>*/}
             <CategoriesRecsBlock/>
             <TotalRecsBlock/>
 
@@ -37,7 +34,6 @@ export const HomeTab = observer(() => {
             {/*    <Space/>*/}
             {/*    <CardItem id={3} total={10} cashback={3} partner={true} price={1000} name={'Пиво'}/>*/}
             {/*</Group>*/}
-
-        </>
+        </Container>
     )
-});
+}

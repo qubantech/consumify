@@ -6,25 +6,20 @@ import {DISPLAY_NONE, PATHS} from '../../meta/paths'
 import {
     Avatar,
     ActionIcon,
-    Button,
     MediaQuery,
     Group,
     Header as MantineHeader,
-    Center,
-    Text,
-    Grid, useMantineColorScheme, UnstyledButton
+    Center, useMantineColorScheme, UnstyledButton
 } from '@mantine/core'
 import {
     CardStackIcon,
     PersonIcon,
     HomeIcon,
-    FontFamilyIcon,
-    FrameIcon,
-    SlashIcon,
     SunIcon,
     MoonIcon
 } from '@radix-ui/react-icons'
 import {storeCashBacks} from "../../store/cashbacks-list";
+import {ProfileIconHeader} from "./profile-icon-header";
 
 const ICON_SIZE = {height:20, width:20}
 
@@ -35,7 +30,7 @@ export const Header = () => {
     return (
         <>
         <MediaQuery largerThan={"md"} styles={DISPLAY_NONE}>
-            <MantineHeader height={66} padding='xs'>
+            <MantineHeader fixed={true} height={66} padding='xs'>
                 <Group grow>
                     <Group>
                         <Link to={PATHS.HOME}>
@@ -59,11 +54,7 @@ export const Header = () => {
                         <ActionIcon onClick={() => storeCashBacks.setIsOpen(true)}>
                             <CardStackIcon style={ICON_SIZE}/>
                         </ActionIcon>
-                        <Link to={PATHS.PROFILE}>
-                            <UnstyledButton>
-                                <Avatar radius="xl">SAS</Avatar>
-                            </UnstyledButton>
-                        </Link>
+                        <ProfileIconHeader/>
                     </Group>
                 </Group>
             </MantineHeader>
