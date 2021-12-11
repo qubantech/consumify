@@ -52,13 +52,13 @@ const cardsInitState:CardInterface[] = [{
     price: 1000,
 }];
 
-const inPage = 3;
+const inPage = 6;
 
 const categoriesRecommendations = () => {
     const store = {
         isFetching: false,
         cards: cardsInitState,
-        currCards: cardsInitState,
+        currCards: cardsInitState.slice(0, inPage),
         total: 2,
         currentPage: 1,
         setCurrentPage (page: number) {
@@ -70,13 +70,16 @@ const categoriesRecommendations = () => {
             { label: 'Супермаркеты', value: 'american' },
             { label: 'Автозаправки', value: 'british' },
             { label: 'Одежда', value: 'russian' },
-            { label: 'Мебель и бытовая техника', value: 'chinese' },
-            { label: 'Фастфуд', value: 'american' },
-            { label: 'Игры', value: 'british' },
-            { label: 'Апетеки', value: 'russian' },
-            { label: 'Зоомагазины', value: 'chinese' },
-            { label: 'Автосервисы', value: 'chinese' },
+            { label: 'Мебель и бытовая техника', value: 'q6' },
+            { label: 'Фастфуд', value: 'q' },
+            { label: 'Игры', value: 'q2' },
+            { label: 'Апетеки', value: 'q3' },
+            { label: 'Зоомагазины', value: 'q4' },
+            { label: 'Автосервисы', value: 'q5' },
         ],
+        setFilterValue (value:string) {
+            store.filterValue = value
+        }
         // changeFilter (value: string) {
         //     store.currentPage = 1;
         //     store.isFetching = true;

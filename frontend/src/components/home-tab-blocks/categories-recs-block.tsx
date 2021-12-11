@@ -5,32 +5,48 @@ import {
     Pagination,
     Center,
     Space,
-    SegmentedControl,
-    Skeleton
+    Button,
+    Skeleton,
+    Group,
+    Title
 } from "@mantine/core";
-import { CardInterface } from "../../http/models";
+import {CardInterface, FilterInterface} from "../../http/models";
 
 import {storeCategoriesRecommendations} from "../../store/categories-recommendations";
 import CardItem from "../shared/card-item";
+import {observer} from "mobx-react-lite";
 
-const CategoriesRecsBlock = () => {
-    const {isFetching, currCards, total, setCurrentPage, currentPage, filterOptions, filterValue} = storeCategoriesRecommendations
+const CategoriesRecsBlock = observer(() => {
+    const {isFetching, currCards, total, setCurrentPage, currentPage, filterOptions, filterValue, setFilterValue} = storeCategoriesRecommendations
 
     return (
         <div>
-            <SegmentedControl
+            <Title order={1}></Title>
+            {/*<SegmentedControl
                 fullWidth
                 value={filterValue}
                 // onChange={changeFilter}
                 data={filterOptions}
-            />
-            <Space h="md" />
+            />*/}
             {!isFetching &&
             <div>
+                <div>
+                    <Group position={"left"} spacing={"xs"}>
+                        {filterOptions && (
+                            filterOptions.map((button:FilterInterface) =>
+                                <Button size={"sm"}
+                                        color={(filterValue == button.value) ? "grape" : "gray"}
+                                        onClick={() => setFilterValue(button.value)}>
+                                    {button.label}
+                                </Button>
+                            ))}
+                    </Group>
+                </div>
+                <Space h="md" />
                 <Grid gutter={"sm"} justify='center'>
                     {currCards && (
                         currCards.map((card: CardInterface) =>
-                            <Col key={card.id} span={12} xs={12} md={4} lg={4} xl={4}>
+                            <Col key={card.id} span={12} xs={6} sm={4} md={3} lg={3} xl={3}>
                                 <CardItem card={card}/>
                             </Col>
                         ))
@@ -49,6 +65,6 @@ const CategoriesRecsBlock = () => {
             }
         </div>
     );
-};
+});
 
 export default CategoriesRecsBlock;

@@ -1,8 +1,9 @@
 import React from 'react';
 import {storeTotalRecommendations} from "../../store/total-recommendations";
-import {Center, Col, Grid, Pagination, Space} from "@mantine/core";
+import {Center, Col, Grid, Pagination, Space, Title} from "@mantine/core";
 import {CardInterface} from "../../http/models";
 import CardItem from "../shared/card-item";
+import {observer} from "mobx-react-lite";
 
 // const card = {
 //     name: "card",
@@ -13,19 +14,22 @@ import CardItem from "../shared/card-item";
 //     price: 1000,
 // }
 
-const TotalRecsBlock = () => {
+const TotalRecsBlock = observer(() => {
     const {isFetching, currCards, total, setCurrentPage, currentPage} = storeTotalRecommendations;
 
     return (
         <>
+            <Title order={1}></Title>
             {
                 !isFetching &&
                 <div>
                     <Grid gutter={"sm"} justify='center'>
                         {currCards && (
                             currCards.map((card: CardInterface) =>
-                                <Col key={card.id} span={12} xs={12} md={4} lg={4} xl={4}>
-                                    <CardItem card={card}/>
+                                <Col key={card.id} span={12} xs={6} sm={4} md={3} lg={3} xl={3}>
+                                    <Center>
+                                        <CardItem card={card}/>
+                                    </Center>
                                 </Col>
                             ))
                         }
@@ -42,6 +46,6 @@ const TotalRecsBlock = () => {
             }
         </>
     );
-};
+});
 
 export default TotalRecsBlock;
