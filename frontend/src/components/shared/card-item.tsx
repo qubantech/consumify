@@ -22,7 +22,7 @@ const CardItem = ( props:{
                             }
                             <Menu shadow='md' sx={
                             (theme) => ({
-                                backgroundColor: theme.colorScheme === 'dark' ? 'gray' : 'lightgray',
+                                backgroundColor: theme.colorScheme === 'dark' ? '#25262b' : 'lightgray',
                                 borderRadius: '8px',
                                 '&:focus': {
                                 backgroundColor: 'darkgray',

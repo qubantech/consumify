@@ -8,16 +8,58 @@ async function getCards (param: string) {
     return cardsList
 }
 
-const cardsInitState:CardInterface[] = [];
+const cardsInitState:CardInterface[] = [{
+    name: 'name',
+    id: 0,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+}, {
+    name: 'name',
+    id: 1,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+},{
+    name: 'name',
+    id: 2,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+},{
+    name: 'name',
+    id: 3,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+},{
+    name: 'name',
+    id: 4,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+},{
+    name: 'name',
+    id: 5,
+    total: 10,
+    cashback: 3,
+    partner: true,
+    price: 1000,
+}];
 
-const inPage = 6;
+const inPage = 3;
 
 const categoriesRecommendations = () => {
     const store = {
         isFetching: false,
         cards: cardsInitState,
         currCards: cardsInitState,
-        total: 0,
+        total: 2,
         currentPage: 1,
         setCurrentPage (page: number) {
             store.currCards = store.cards.slice(inPage * (page - 1), inPage * page)
@@ -25,10 +67,15 @@ const categoriesRecommendations = () => {
         },
         filterValue: 'American',
         filterOptions: [
-            { label: 'American', value: 'american' },
-            { label: 'British', value: 'british' },
-            { label: 'Soviet Russian', value: 'russian' },
-            { label: 'China', value: 'chinese' },
+            { label: 'Супермаркеты', value: 'american' },
+            { label: 'Автозаправки', value: 'british' },
+            { label: 'Одежда', value: 'russian' },
+            { label: 'Мебель и бытовая техника', value: 'chinese' },
+            { label: 'Фастфуд', value: 'american' },
+            { label: 'Игры', value: 'british' },
+            { label: 'Апетеки', value: 'russian' },
+            { label: 'Зоомагазины', value: 'chinese' },
+            { label: 'Автосервисы', value: 'chinese' },
         ],
         // changeFilter (value: string) {
         //     store.currentPage = 1;

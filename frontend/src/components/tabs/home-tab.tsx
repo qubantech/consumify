@@ -1,6 +1,6 @@
 import TotalRecsBlock from "../home-tab-blocks/total-recs-block";
 import CategoriesRecsBlock from "../home-tab-blocks/categories-recs-block";
-import {Container} from "@mantine/core";
+import {Container, Space, Title} from "@mantine/core";
 import {StartAndProfileBlock} from "../home-tab-blocks/start-and-profile-block";
 import {useMediaQuery} from "@mantine/hooks";
 
@@ -20,20 +20,11 @@ export const HomeTab = () => {
             {/*<MediaQuery largerThan={"md"} styles={DISPLAY_NONE}>
                 <StartAndProfileBlock/>
             </MediaQuery>*/}
-            <CategoriesRecsBlock/>
+            <Title order={1}></Title>
             <TotalRecsBlock/>
-
-            {/*<Group>*/}
-            {/*    <CardItem id={1} total={10} cashback={3} partner={true} price={1000} name={'Купаты'}/>*/}
-            {/*    <Space/>*/}
-            {/*    <CardItem id={2} total={10} cashback={3} partner={true} price={1000} name={'Playstation 5'}/>*/}
-            {/*    <Space/>*/}
-            {/*    <CardItem id={3} total={10} cashback={3} partner={true} price={1000} name={'Пиво'}/>*/}
-            {/*    <Space/>*/}
-            {/*    <CardItem id={3} total={10} cashback={3} partner={true} price={1000} name={'Пиво'}/>*/}
-            {/*    <Space/>*/}
-            {/*    <CardItem id={3} total={10} cashback={3} partner={true} price={1000} name={'Пиво'}/>*/}
-            {/*</Group>*/}
+            <Space/>
+            <Title order={1}></Title>
+            <CategoriesRecsBlock/>
         </Container>
     )
 }

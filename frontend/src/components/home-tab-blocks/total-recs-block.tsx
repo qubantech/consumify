@@ -4,18 +4,27 @@ import {Center, Col, Grid, Pagination, Space} from "@mantine/core";
 import {CardInterface} from "../../http/models";
 import CardItem from "../shared/card-item";
 
+// const card = {
+//     name: "card",
+//     id: 0,
+//     total: 20,
+//     cashback: 3,
+//     partner: true,
+//     price: 1000,
+// }
+
 const TotalRecsBlock = () => {
-    const {currCards, total, setCurrentPage, currentPage} = storeTotalRecommendations;
+    const {isFetching, currCards, total, setCurrentPage, currentPage} = storeTotalRecommendations;
 
     return (
         <>
             {
-                !storeTotalRecommendations.isFetching &&
+                !isFetching &&
                 <div>
-                    <Grid gutter={"sm"}>
+                    <Grid gutter={"sm"} justify='center'>
                         {currCards && (
                             currCards.map((card: CardInterface) =>
-                                <Col key={card.id} span={12} xs={6} md={4} lg={4} xl={3}>
+                                <Col key={card.id} span={12} xs={12} md={4} lg={4} xl={4}>
                                     <CardItem card={card}/>
                                 </Col>
                             ))

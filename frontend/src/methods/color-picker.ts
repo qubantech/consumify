@@ -12,5 +12,5 @@ export const getColor = (id:number, total:number) : string => {
         case 4: r = f; g = 0; b = 1; break;
         case 5: r = 1; g = 0; b = q; break;
     }
-    return "#" + ("00" + (~ ~(r * 255)).toString(16)).slice(-2) + ("00" + (~ ~(g * 255)).toString(16)).slice(-2) + ("00" + (~ ~(b * 255)).toString(16)).slice(-2);
+    return "#" + ("ff" + (~ ~(r * 255)).toString(16)).slice(-2) + ("ff" + (~ ~(g * 255)).toString(16)).slice(-2) + ("ff" + (~ ~(b * 255)).toString(16)).slice(-2);
 }

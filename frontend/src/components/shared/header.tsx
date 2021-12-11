@@ -54,7 +54,7 @@ export const Header = () => {
                         <ActionIcon onClick={() => storeCashBacks.setIsOpen(true)}>
                             <CardStackIcon style={ICON_SIZE}/>
                         </ActionIcon>
-                        <ProfileIconHeader/>
+                        <ProfileIconHeader avatarSize={'md'} idSize={'md'}/>
                     </Group>
                 </Group>
             </MantineHeader>

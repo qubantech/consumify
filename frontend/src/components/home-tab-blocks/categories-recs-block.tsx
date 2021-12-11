@@ -14,7 +14,7 @@ import {storeCategoriesRecommendations} from "../../store/categories-recommendat
 import CardItem from "../shared/card-item";
 
 const CategoriesRecsBlock = () => {
-    const {currCards, total, setCurrentPage, currentPage, filterOptions, filterValue} = storeCategoriesRecommendations
+    const {isFetching, currCards, total, setCurrentPage, currentPage, filterOptions, filterValue} = storeCategoriesRecommendations
 
     return (
         <div>
@@ -25,12 +25,12 @@ const CategoriesRecsBlock = () => {
                 data={filterOptions}
             />
             <Space h="md" />
-            {!storeCategoriesRecommendations.isFetching &&
+            {!isFetching &&
             <div>
-                <Grid gutter={"sm"}>
+                <Grid gutter={"sm"} justify='center'>
                     {currCards && (
                         currCards.map((card: CardInterface) =>
-                            <Col key={card.id} span={12} xs={6} md={4} lg={4} xl={3}>
+                            <Col key={card.id} span={12} xs={12} md={4} lg={4} xl={4}>
                                 <CardItem card={card}/>
                             </Col>
                         ))

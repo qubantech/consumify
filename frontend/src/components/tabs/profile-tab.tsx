@@ -8,8 +8,8 @@ import Check from "../profile-tab-blocks/check";
 import React from "react";
 import {StartAndProfileBlock} from "../home-tab-blocks/start-and-profile-block";
 
-export const ProfileTab = ( ) => {
-    const {isFetching, id, quitProfile} = storeProfile;
+export const ProfileTab = () => {
+    const {isFetching, id} = storeProfile;
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const dark = colorScheme === 'dark';
 

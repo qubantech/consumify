@@ -23,7 +23,7 @@ export const StartAndProfileBlock = observer(() => {
     return (
         <div>
             <Group spacing={"xs"} position={"apart"}>
-                <ProfileIconHeader/>
+                <ProfileIconHeader avatarSize={'lg'} idSize={'xl'}/>
                 <MediaQuery smallerThan={"md"} styles={DISPLAY_NONE}>
                     <ActionIcon
                         size={"lg"}
@@ -37,7 +37,7 @@ export const StartAndProfileBlock = observer(() => {
                         )}
                     </ActionIcon>
                 </MediaQuery>
-                <Button onClick={onQuit()}>Выйти</Button>
+                <Button onClick={onQuit()} size={'md'} style={{padding: "5px 40px"}}>Выйти</Button>
             </Group>
             <Space h={"sm"}/>
         </div>

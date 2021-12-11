@@ -11,8 +11,6 @@ const profile = () => {
             store.colorID = getColor(id, 3000)
             localStorage.setItem("ID", String(id))
         },
-        //checks: [], (перенести в отдельный стор,
-        //потому что иначе при любой загрузке страницы будем дергать чеки)
         quitProfile(){
             store.id = 0
         }

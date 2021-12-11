@@ -17,49 +17,49 @@ const cardsInitState:CardInterface[] = [{
     price: 1000,
 }, {
     name: 'name',
-    id: 0,
+    id: 1,
     total: 10,
     cashback: 3,
     partner: true,
     price: 1000,
 },{
     name: 'name',
-    id: 0,
+    id: 2,
     total: 10,
     cashback: 3,
     partner: true,
     price: 1000,
 },{
     name: 'name',
-    id: 0,
+    id: 3,
     total: 10,
     cashback: 3,
     partner: true,
     price: 1000,
 },{
     name: 'name',
-    id: 0,
+    id: 4,
     total: 10,
     cashback: 3,
     partner: true,
     price: 1000,
 },{
     name: 'name',
-    id: 0,
+    id: 5,
     total: 10,
     cashback: 3,
     partner: true,
     price: 1000,
 }];
 
-const inPage = 4;
+const inPage = 3;
 
 const totalRecommendations = () => {
     const store = {
         isFetching: false,
         cards: cardsInitState,
         currCards: cardsInitState,
-        total: 0,
+        total: 2,
         currentPage: 1,
         setCurrentPage (page: number) {
             store.currCards = store.cards.slice(inPage * (page - 1), inPage * page)
