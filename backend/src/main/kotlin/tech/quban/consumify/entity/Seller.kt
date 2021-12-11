@@ -2,10 +2,10 @@ package tech.quban.consumify.entity
 
 import javax.persistence.*
 
-@Entity
+@Entity(name = "sellers")
 data class Seller(
     @Id val id: Long,
-    val name: Long,
+    val name: String,
     val imageUrl: String,
 
     @ManyToMany(fetch = FetchType.LAZY)
