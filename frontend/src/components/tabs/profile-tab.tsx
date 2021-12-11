@@ -1,8 +1,4 @@
-import {
-    Container,
-    Space,
-    useMantineColorScheme
-} from "@mantine/core";
+import { Container, Grid, Col, Space, useMantineColorScheme } from "@mantine/core";
 import {storeProfile} from "../../store/profile";
 import Check from "../profile-tab-blocks/check";
 import React from "react";
@@ -28,7 +24,14 @@ export const ProfileTab = () => {
                 >
                     <StartAndProfileBlock/>
                     <Space/>
-                    <Check/>
+                    <Grid>
+                        <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "center"}}>
+                            <Check/>
+                        </Col>
+                        <Col  span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "center"}}>
+                            <Check/>
+                        </Col>
+                    </Grid>
                     {/*<Grid>*/}
                     {/*    {*/}
                     {/*        checks.map( (check) => {*/}
