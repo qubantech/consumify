@@ -62,7 +62,7 @@ const App = () => {
                 }}>
                 <BrowserRouter>
                     <ModalCashBacks/>
-                    <AppShell style={{ paddingTop: mdScreen ? 66 : 0, paddingBottom: mdScreen ? 0 : 49 }}
+                    <AppShell className={'app-shell'} style={{ paddingTop: mdScreen ? 66 : 0, paddingBottom: mdScreen ? 0 : 49, minHeight: '100vh' }}
                               header={<Header/>} styles={shellStyle}>
                         <Routes>
                             <Route path={PATHS.LOGIN}
