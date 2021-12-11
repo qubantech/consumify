@@ -2,10 +2,8 @@ package tech.quban.consumify.controller
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import tech.quban.consumify.dto.SubscriptionStatusResponseDto
 
 @RestController
 @RequestMapping("/subscription")
@@ -13,15 +11,41 @@ class SubscriptionController {
 
     @GetMapping("/{userID}")
     @Operation(
-        description = "Returns default cashback list."
+        description = "Returns bank subscription status for increased cashback and subscription options."
     )
     @ApiResponse(
-        responseCode = "200",
-        description = "Example response description"
+        responseCode = "200"
     )
-    fun getDefaultCashbackList(@PathVariable userID: Int): String {
-        return "Hello"
+    fun getSubscriptionStatus(@PathVariable userID: Int): SubscriptionStatusResponseDto? {
+        return null
     }
 
+    @PostMapping("/{userID}")
+    @Operation(
+        description = "Makes subscription."
+    )
+    @ApiResponse(
+        responseCode = "200"
+    )
+    fun makeSubscription(
+        @PathVariable userID: Int,
+        @RequestParam("category_id") categoryID: String
+    ): String? {
+        return null
+    }
+
+    @DeleteMapping("/{userID}")
+    @Operation(
+        description = "Cancelling subscription."
+    )
+    @ApiResponse(
+        responseCode = "200"
+    )
+    fun cancelSubscription(
+        @PathVariable userID: Int,
+        @RequestParam("subscription_id") categoryID: String
+    ): String? {
+        return null
+    }
 
 }
