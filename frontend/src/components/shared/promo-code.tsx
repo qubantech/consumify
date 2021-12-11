@@ -41,7 +41,7 @@ const PromoCode = (props: {
                         <Group direction={'column'} position={'center'} style={styles}>
                             <Paper padding={3} shadow={'sm'}>
                                 <Center>
-                                    <Text size={'sm'}>AB20SAS</Text>
+                                    <Text size={"sm"}>{props.promoCode.code}</Text>
                                 </Center>
                             </Paper>
                             <Text size={'xs'} color={'gray'}>До 31 декабря</Text>

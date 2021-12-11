@@ -8,7 +8,7 @@ const profile = () => {
         colorID: "red",
         setID (id:number) {
             store.id = id
-            store.colorID = getColor(id, 3000)
+            store.colorID = getColor(id, 16)
             localStorage.setItem("ID", String(id))
         },
         quitProfile(){

@@ -8,7 +8,7 @@ export const CardItem = (props: {
     card: CardInterface
 }) => {
     return (
-        <div style={{ maxWidth: '300px', minWidth: '230px' }}>
+        <div style={{maxWidth: '300px', minWidth: '220px'}}>
             <Card shadow='md' padding='xs'>
                 <Card.Section>
                     <div style={{

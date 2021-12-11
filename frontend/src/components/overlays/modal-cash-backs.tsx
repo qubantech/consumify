@@ -44,6 +44,7 @@ export const ModalCashBacks = observer(() => {
             transitionTimingFunction='ease'
             opened={isOpen}
             size={'xl'}
+            padding={"xs"}
             onClose={onModalClose}
             title={'Cashbacks'}>
             {storeProfile.id != 0 ?

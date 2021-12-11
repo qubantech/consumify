@@ -45,7 +45,7 @@ export const StartAndProfileBlock = observer(() => {
                         )}
                     </ActionIcon>
                 </MediaQuery>
-                <Button onClick={onQuit()} size={'md'} style={{ padding: '5px 40px' }}>Выйти</Button>
+                <Button onClick={onQuit()} size={'md'} style={{ padding: '5px 20px' }}>Выйти</Button>
             </Group>
             <Space h={'sm'}/>
         </div>
