@@ -1,4 +1,4 @@
-import {CategoryModel} from "./category-model";
+import {CategoryModel} from "../cashback-models";
 
 export interface SellerModel {
     id: number,

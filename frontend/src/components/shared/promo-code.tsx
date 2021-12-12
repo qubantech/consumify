@@ -14,14 +14,15 @@ export const PromoCode = (props: {
     const mdScreen = useMediaQuery('(max-width: 769px)')
     const smScreen = useMediaQuery('(max-width: 415px)')
     const xsScreen = useMediaQuery('(max-width: 376px)')
+    const xxsScreen = useMediaQuery('(max-width: 321px)')
 
 
     return (
-        <div style={{ width: (xsScreen ? '150px' : smScreen ? '170px' : mdScreen ? '125px' : '143px'), position: 'relative' }} ref={ref}>
+        <div style={{ width: (xxsScreen ? '122px' : xsScreen ? '150px' : smScreen ? '170px' : mdScreen ? '125px' : '143px'), position: 'relative' }} ref={ref}>
             <Card shadow='sm' padding={10} sx={
                 (theme) => ({
                     position: 'relative',
-                    height: (xsScreen ? '150px' : smScreen ? '170px' : mdScreen ? '125px' : '143px'),
+                    height: (xxsScreen ? '122px' : xsScreen ? '150px' : smScreen ? '170px' : mdScreen ? '125px' : '143px'),
                     background: theme.colorScheme === 'dark' ? `linear-gradient(to bottom right, ${props.promoCode.color} 1%, #373A40 )` : `linear-gradient(to bottom right, ${props.promoCode.color} 1%, white )`,
                 })}>
                 <Avatar

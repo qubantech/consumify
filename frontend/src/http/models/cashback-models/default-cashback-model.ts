@@ -1,4 +1,4 @@
-import { SellerModel } from "./seller-model";
+import { SellerModel } from "../shared/seller-model";
 
 export interface DefaultCashbackModel {
     seller: SellerModel,
