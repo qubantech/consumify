@@ -47,16 +47,15 @@ class MetrixService {
     }
 
     /*
-    purchases: Map<user_id,
-                            Map<product_id, overall_product_price>
-                  >
+    purchases: Map<user_id, Map<product_id, overall_product_price>>
+    returns ascending map by matching coefficient
      */
     fun makeRecommendationByProduct(
         userId: Long,
         purchases: MutableMap<Long, MutableMap<Long, Double>>,
         bestUsers: Int,
         bestProducts: Int
-    ): TreeMap<Long?, Double?> {
+    ): TreeMap<Double?, Long?> {
         val matchesWithUser = TreeMap<Double, Long>()
 
         for (entry in purchases.entries) {
@@ -121,21 +120,27 @@ class MetrixService {
             sim.replace(product, sim[product]!! / sim_all)
         }
 
-        val bestSimilarity = sim.entries.stream()
+        // sorting desc
+        val swappedMap = TreeMap<Double, Long>(Collections.reverseOrder())
+        for (key in sim.keys) {
+            val value = sim[key]!!
+            swappedMap.put(value, key!!)
+        }
+
+        val bestSimilarity = swappedMap.entries.stream()
             .limit(bestProducts.toLong())
             .collect(
                 { TreeMap() },
-                { m: TreeMap<Long?, Double?>, e: Map.Entry<Long?, Double?> ->
+                { m: TreeMap<Double?, Long?>, e: Map.Entry<Double?, Long?> ->
                     m.put(
                         e.key,
                         e.value
                     )
-                }) { obj: TreeMap<Long?, Double?>, m: TreeMap<Long?, Double?>? ->
+                }) { obj: TreeMap<Double?, Long?>, m: TreeMap<Double?, Long?>? ->
                 obj.putAll(
                     m!!
                 )
             }
-
 //        System.out.printf(bestSimilarity.toString())
         return bestSimilarity
     }
@@ -146,7 +151,7 @@ class MetrixService {
         purchases: MutableMap<Long, MutableMap<Long, Double>>,
         bestUsers: Int,
         bestProducts: Int
-    ): TreeMap<Long?, Double?> {
+    ): TreeMap<Double?, Long?> {
         val matchesWithUser = TreeMap<Double, Long>()
 
         for (entry in purchases.entries) {
@@ -211,16 +216,24 @@ class MetrixService {
             sim.replace(product, sim[product]!! / sim_all)
         }
 
-        val bestSimilarity = sim.entries.stream()
+        // sorting desc
+        val swappedMap = TreeMap<Double, Long>(Collections.reverseOrder())
+        for (key in sim.keys) {
+            val value = sim[key]!!
+            swappedMap.put(value, key)
+        }
+
+        // selecting mostly matching
+        val bestSimilarity = swappedMap.entries.stream()
             .limit(bestProducts.toLong())
             .collect(
                 { TreeMap() },
-                { m: TreeMap<Long?, Double?>, e: Map.Entry<Long?, Double?> ->
+                { m: TreeMap<Double?, Long?>, e: Map.Entry<Double?, Long?> ->
                     m.put(
                         e.key,
                         e.value
                     )
-                }) { obj: TreeMap<Long?, Double?>, m: TreeMap<Long?, Double?>? ->
+                }) { obj: TreeMap<Double?, Long?>, m: TreeMap<Double?, Long?>? ->
                 obj.putAll(
                     m!!
                 )
