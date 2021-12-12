@@ -6,4 +6,5 @@ import tech.quban.consumify.dto.OfferDto
 @Service
 interface OfferService {
     fun getOfferListByUserIdAndProductId(userId: Long, productId: Long): List<OfferDto>
+    fun getOfferListByProductId(productId: Long): List<OfferDto>
 }

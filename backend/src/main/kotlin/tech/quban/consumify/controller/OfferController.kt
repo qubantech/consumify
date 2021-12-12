@@ -14,4 +14,8 @@ class OfferController(
     @GetMapping("/{userId}/{productId}")
     fun getOfferListByUserIdAndProductId(@PathVariable userId: Long, @PathVariable productId: Long) = offerService
         .getOfferListByUserIdAndProductId(userId, productId)
+
+    @GetMapping("/anonymous/{productId}")
+    fun getOfferListByUserIdAndProductId(@PathVariable productId: Long) = offerService
+        .getOfferListByProductId(productId)
 }

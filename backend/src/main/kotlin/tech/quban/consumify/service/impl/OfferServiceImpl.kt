@@ -68,4 +68,41 @@ class OfferServiceImpl(
 
         return offerDtoList
     }
+
+    override fun getOfferListByProductId(productId: Long): List<OfferDto> {
+        val defaultCashbackList: List<DefaultCashback> = defaultCashbackRepository.findAll()
+
+        val sellerIdToBankBen = HashMap<Long, BigDecimal>()
+        val sellerIdToCashback = HashMap<Long, BigDecimal>()
+
+        val pspList =  productSellerPriceRepository.getByProduct_id(productId)
+
+        pspList.forEach { psp ->
+            var bankPercent = BigDecimal.ZERO
+            bankPercent += defaultCashbackList
+                .find { it.seller.id == psp.seller_id }
+                ?.bankPercent
+                ?: BigDecimal.ZERO
+            sellerIdToBankBen[psp.seller_id] = psp.cost * bankPercent
+
+            var cashPercent = BigDecimal.ZERO
+            cashPercent += defaultCashbackList
+                .find { it.seller.id == psp.seller_id }
+                ?.percent
+                ?: BigDecimal.ZERO
+            sellerIdToCashback[psp.seller_id] = psp.cost * cashPercent
+        }
+
+        val sortedSellers = sellerIdToBankBen.toList().sortedBy { it.second }
+
+        val offerDtoList = sortedSellers.map {
+                s -> OfferDto(
+            seller = sellerRepository.getById(s.first).toSellerDto(),
+            price = pspList.find { s.first == it.seller_id }?.cost ?: 0.0.toBigDecimal(),
+            cashbackValue = (sellerIdToCashback[s.first] ?: 0.0.toBigDecimal()) * 0.01.toBigDecimal()
+        )
+        }
+
+        return offerDtoList
+    }
 }

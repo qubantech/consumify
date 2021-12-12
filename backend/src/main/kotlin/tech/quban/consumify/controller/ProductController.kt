@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import tech.quban.consumify.dto.ProductDto
-import tech.quban.consumify.entity.Product
 import tech.quban.consumify.mapper.toProductDto
 import tech.quban.consumify.repository.ProductRepository
 
