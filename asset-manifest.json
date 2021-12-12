@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/consumify/static/css/main.a4ee4e8d.chunk.css",
+    "main.js": "/consumify/static/js/main.ec6ecde8.chunk.js",
+    "main.js.map": "/consumify/static/js/main.ec6ecde8.chunk.js.map",
+    "runtime-main.js": "/consumify/static/js/runtime-main.c587c084.js",
+    "runtime-main.js.map": "/consumify/static/js/runtime-main.c587c084.js.map",
+    "static/js/2.2276cf7a.chunk.js": "/consumify/static/js/2.2276cf7a.chunk.js",
+    "static/js/2.2276cf7a.chunk.js.map": "/consumify/static/js/2.2276cf7a.chunk.js.map",
+    "index.html": "/consumify/index.html",
+    "static/css/main.a4ee4e8d.chunk.css.map": "/consumify/static/css/main.a4ee4e8d.chunk.css.map",
+    "static/js/2.2276cf7a.chunk.js.LICENSE.txt": "/consumify/static/js/2.2276cf7a.chunk.js.LICENSE.txt",
+    "static/media/consumify-black-text-logo.8168cc76.svg": "/consumify/static/media/consumify-black-text-logo.8168cc76.svg",
+    "static/media/consumify-black-theme-logo.4c8cee7e.svg": "/consumify/static/media/consumify-black-theme-logo.4c8cee7e.svg",
+    "static/media/consumify-white-text-logo.1650c15a.svg": "/consumify/static/media/consumify-white-text-logo.1650c15a.svg",
+    "static/media/consumify-white-theme-logo.d7e46f66.svg": "/consumify/static/media/consumify-white-theme-logo.d7e46f66.svg",
+    "static/media/delivery-club-logo.f9e00802.png": "/consumify/static/media/delivery-club-logo.f9e00802.png",
+    "static/media/mir-logo.8e8e3235.svg": "/consumify/static/media/mir-logo.8e8e3235.svg",
+    "static/media/pyatorochka-logo.adc82a87.png": "/consumify/static/media/pyatorochka-logo.adc82a87.png",
+    "static/media/yandex-eats-logo.5aa79328.png": "/consumify/static/media/yandex-eats-logo.5aa79328.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c587c084.js",
+    "static/js/2.2276cf7a.chunk.js",
+    "static/css/main.a4ee4e8d.chunk.css",
+    "static/js/main.ec6ecde8.chunk.js"
+  ]
+}
