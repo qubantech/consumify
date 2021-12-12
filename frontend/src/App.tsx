@@ -10,7 +10,7 @@ import {useColorScheme, useMediaQuery} from "@mantine/hooks";
 import {ModalCashBacks} from "./components/overlays/modal-cash-backs";
 import {LoginTab} from "./components/tabs/login-tab";
 import {storeProfile} from "./store/profile";
-import { OfferDrawer } from "./components/shared/offer-drawer";
+import {OfferModal} from "./components/shared/offer-modal";
 
 
 const shellStyle = (theme: MantineTheme) => ({
@@ -75,7 +75,7 @@ const App = () => {
                     },
                 }}>
                 <BrowserRouter>
-                    <OfferDrawer product={{id: 11, name: 'Колбаса'}} offers={[offer, offer, offer]}/>
+                    <OfferModal product={{id: 11, name: 'Колбаса'}} offers={[offer, offer, offer]}/>
                     <ModalCashBacks/>
                     <AppShell style={{paddingTop: mdscreen ? 66 : 0, paddingBottom: mdscreen ? 0 : 49}} header={<Header/>} styles={shellStyle}>
                         <Routes>

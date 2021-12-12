@@ -15,14 +15,15 @@ import {
     Space,
     Table,
     Text,
-    Title
+    Title,
+    Modal
 } from '@mantine/core'
 import { getColor } from "../../methods/color-picker";
 import { OfferModel } from "../../http/models/offer-models/offer-model";
 import { useMediaQuery } from "@mantine/hooks";
 
 
-export const OfferDrawer = (props: {
+export const OfferModal = (props: {
     product: {
         id: number,
         name: string,
@@ -48,17 +49,18 @@ export const OfferDrawer = (props: {
 
     const digitsAfterDot = (num: number, digits: number) => Math.round(num * (10 ** digits)) / 10 ** digits
 
+
     return (
         <>
-            <Drawer
+            <Modal
                 opened={opened}
                 onClose={() => setOpened(false)}
-                size= {mobileSize ? '100%' : '40%'}
-                position='left'
+                transition="fade"
                 transitionDuration={600}
-                transitionTimingFunction='ease'
-                padding={'xl'}
-                noScrollLock
+                transitionTimingFunction="ease"
+                size={ '100%' }
+                padding={'xs'}
+                overflow={'outside'}
             >
                 <Center>
                     <Group direction="column">
@@ -82,7 +84,9 @@ export const OfferDrawer = (props: {
                                     >
                                         <Center>
                                             <Group style={{ padding: '0', margin: '0' }}>
-                                                <Avatar size={mobileSize ? 'md' : 'xl'} src={offer.seller.imageUrl}/>
+                                                {
+                                                    !mobileSize && <Avatar size={'xl'} src={offer.seller.imageUrl}/>
+                                                }
                                                 <Group>
                                                     <Group direction={'column'} spacing={10}>
                                                         <Badge variant="outline" >
@@ -95,7 +99,7 @@ export const OfferDrawer = (props: {
                                                             Кэшбэк: {digitsAfterDot(offer.cashbackValue, 2)}₽
                                                         </Text>
                                                     </Group>
-                                                    <Space w={50}/>
+                                                    <Space w={20}/>
                                                     <Button size='xs'>
                                                         {offer.price} ₽
                                                     </Button>
@@ -108,7 +112,7 @@ export const OfferDrawer = (props: {
                         }
                     </Group>
                 </Center>
-            </Drawer>
+            </Modal>
         </>
     )
 }
