@@ -3,6 +3,11 @@ import { Group, Space, Spoiler, Title } from '@mantine/core';
 import { PromoCode } from '../../shared';
 import { PromoCodeInterface } from '../../@types';
 
+import delivery_logo from '../../../../src/assets/delivery-club-logo.png'
+import samokat_logo from '../../../../src/assets/samokat-logo.png'
+import yandex_eats_logo from '../../../../src/assets/yandex-eats-logo.png'
+import pyatorochka_logo from '../../../../src/assets/pyatorochka-logo.png'
+
 
 const data = [
     {
@@ -11,6 +16,7 @@ const data = [
         description: 'Доставка продуктов',
         color: 'red',
         code: 'firstorder',
+        src: pyatorochka_logo,
     },
     {
         shop: 'Delivery',
@@ -18,6 +24,7 @@ const data = [
         description: 'Доставка еды',
         color: 'green',
         code: 'newbie',
+        src: delivery_logo,
     },
     {
         shop: 'Яндекс.Еда',
@@ -25,6 +32,7 @@ const data = [
         description: 'Доставка еды',
         color: '#fc0',
         code: 'crazy3000',
+        src: yandex_eats_logo,
     },
     {
         shop: 'Самокат',
@@ -32,6 +40,7 @@ const data = [
         description: 'Доставка еды',
         color: '#D6336C',
         code: 'crazy2000',
+        src: samokat_logo,
     },
     {
         shop: 'Пятерочка',
@@ -39,6 +48,7 @@ const data = [
         description: 'Доставка еды',
         color: 'red',
         code: 'crazy1000',
+        src: pyatorochka_logo,
     },
     {
         shop: 'Пятерочка',
@@ -46,6 +56,7 @@ const data = [
         description: 'Доставка еды',
         color: 'red',
         code: 'chips',
+        src: pyatorochka_logo,
     },
     {
         shop: 'Delivery',
@@ -53,6 +64,7 @@ const data = [
         description: 'Доставка еды',
         color: 'green',
         code: 'firstorder',
+        src: delivery_logo,
     },
     {
         shop: 'Яндекс.Еда',
@@ -60,6 +72,8 @@ const data = [
         description: 'Доставка еды',
         color: '#fc0',
         code: 'del1rub',
+        src: yandex_eats_logo,
+
     },
     {
         shop: 'Самокат',
@@ -67,6 +81,7 @@ const data = [
         description: 'Доставка еды',
         color: '#D6336C',
         code: 'firstorder',
+        src: samokat_logo,
     },
 ]
 
