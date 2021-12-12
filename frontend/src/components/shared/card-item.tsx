@@ -12,7 +12,7 @@ export const CardItem = (props: { card: CardInterface }) => {
 
     return (
         <div style={{width: '260px'}}>
-            <Card shadow='md' padding='xs' style={{height:"100%"}}>
+            <Card shadow='md' padding='xs' style={{height:"100%"}} onClick={()=>{}}>
                 <Card.Section>
                     <div style={{
                         marginTop: '-20px',
@@ -49,7 +49,7 @@ export const CardItem = (props: { card: CardInterface }) => {
                         {props.card.total}
                     </Text>
                     <Badge size={"lg"}>
-                        {props.card.cashback}₽
+                        {props.card.cashback.toPrecision(2)}₽
                     </Badge>
                 </Group>
                 <Group position="apart" sx={{ marginTop: 30 }}>
