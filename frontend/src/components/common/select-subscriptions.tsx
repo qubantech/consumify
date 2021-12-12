@@ -3,6 +3,7 @@ import {ForwardedRef, forwardRef, useState} from "react";
 import {storeCashBacks} from "../../store/cashbacks-list";
 import {Category} from "../../http/models/category-models/category";
 import {observer} from "mobx-react-lite";
+import {Link} from "react-router-dom";
 
 
 export const SelectSubscriptions = observer(() => {
@@ -15,8 +16,8 @@ export const SelectSubscriptions = observer(() => {
                 <Group noWrap>
                     <div>
                         <Text>{label}</Text>
-                        <Text size="xs" color="dimmed">-
-                            {id}
+                        <Text size="xs" color="dimmed">
+                            MCC:{id} / 399 рублей/месяц
                         </Text>
                     </div>
                 </Group>
@@ -50,8 +51,15 @@ export const SelectSubscriptions = observer(() => {
                     <Button onClick={()=> addSubscription(Number(value))}>
                         Купить подписку
                     </Button>
-                    <Text>До 11.01.2022</Text>
+                    <Text>(До 11.01.2022)</Text>
                 </Group>
+            </Center>
+            <Center>
+            <Link to={"/"}>
+                <Text size={"sm"} color={"grape"}>
+                    Полные условия программы лояльности
+                </Text>
+            </Link>
             </Center>
         </>
     )

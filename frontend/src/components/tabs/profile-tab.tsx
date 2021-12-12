@@ -3,7 +3,7 @@ import {storeProfile} from "../../store/profile";
 import CheckItem from "../profile-tab-blocks/checkItem";
 import React from "react";
 import {StartAndProfileBlock} from "../tabs/home-tab-blocks/start-and-profile-block";
-import {storeChecks} from "../../store/check";
+import {storeChecks} from "../../store/checks";
 import {observer} from "mobx-react-lite";
 
 export const ProfileTab = observer(() => {

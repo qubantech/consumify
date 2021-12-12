@@ -47,7 +47,7 @@ const CheckItem = (
                                         </td>
                                         <td>
                                             <Text color={"grape"} align={"right"}>
-                                            {it.cashbackValue}
+                                            {it.cashbackValue.toPrecision(2)}
                                             </Text>
                                         </td>
                                     </tr>
@@ -60,7 +60,7 @@ const CheckItem = (
                     <Divider/>
                     <Space/>
                     <Text align='right' size='xl'>Итог: {props.item.positions.map(i=>x+=i.cost*i.amount, x=0).reverse()[0]}₽</Text>
-                    <Text align={"right"} size={"xl"}>Сэкономлено {props.item.positions.map(i=>x+=i.cashbackValue, x=0).reverse()[0].toPrecision(2)}₽</Text>
+                    <Text color={"grape"} align={"right"} size={"xl"}>Сэкономлено {props.item.positions.map(i=>x1+=i.cashbackValue, x1=0).reverse()[0].toPrecision(2)}₽</Text>
                 </Card>
         </div>
     );

@@ -11,7 +11,7 @@ async function getAllChecks () {
 }
 
 
-const check = () => {
+export const checks = () => {
     const store = {
         isFetching: false,
         items: itemsInitState,
@@ -39,4 +39,4 @@ const check = () => {
 
 }
 
-export const storeChecks = check()
+export const storeChecks = checks()

@@ -1,5 +1,5 @@
 export * from './cashbacks-list'
 export * from './categories-recommendations'
-export * from './check'
+export * from './checks'
 export * from './profile'
 export * from './total-recommendations'
