@@ -41,9 +41,15 @@ class TestController(
     fun testFunc() = userCategoryMoneyMap
 
     @GetMapping("/user/{userId}")
-    fun t(@PathVariable userId: Long) =
-        System.out.printf(
-            "\n\n\t\tRECOMMENDATION:" + metrixService.makeRecommendation(userId, userProductMoneyMap, 8, 16)
-                .toString() + "\n\n"
-        )
+    fun t(@PathVariable userId: Long) {
+//        System.out.printf(
+//            "\n\n\t\tRECOMMENDATION BY PRODUCTS:" + metrixService.makeRecommendationByProduct(userId, userProductMoneyMap, 8, 16)
+//                .toString() + "\n\n"
+//        )
+
+//        System.out.printf(
+//            "\n\n\t\tRECOMMENDATION BY CATEGORY:" + metrixService.makeRecommendationByCategory(userId, userCategoryMoneyMap, 8, 16)
+//                .toString() + "\n\n"
+//        )
+    }
 }
