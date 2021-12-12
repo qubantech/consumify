@@ -10,7 +10,7 @@ import {useColorScheme, useMediaQuery} from "@mantine/hooks";
 import {ModalCashBacks} from "./components/overlays/modal-cash-backs";
 import {LoginTab} from "./components/tabs/login-tab";
 import {storeProfile} from "./store/profile";
-import { RecommendationDrawer } from "./components/shared/recommendation-drawer";
+import { OfferDrawer } from "./components/shared/offer-drawer";
 
 
 const shellStyle = (theme: MantineTheme) => ({
@@ -33,6 +33,21 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 
     return children;
 }
+
+const offer =  {
+    "seller": {
+        "id": 8,
+        "name": "PetShop.ru",
+        "imageUrl": "https://cdn1.flamp.ru/24b50f775b32b994c4203731e03d8cae.png",
+        "category": {
+            "id": 5995,
+            "name": "Зоомагазины"
+        }
+    },
+    "price": 888,
+    "cashbackValue": 16.3392
+}
+
 
 
 const App = () => {
@@ -60,7 +75,7 @@ const App = () => {
                     },
                 }}>
                 <BrowserRouter>
-                    <RecommendationDrawer/>
+                    <OfferDrawer product={{id: 11, name: 'Колбаса'}} offers={[offer, offer, offer]}/>
                     <ModalCashBacks/>
                     <AppShell style={{paddingTop: mdscreen ? 66 : 0, paddingBottom: mdscreen ? 0 : 49}} header={<Header/>} styles={shellStyle}>
                         <Routes>

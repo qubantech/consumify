@@ -8,7 +8,8 @@ export const ENDPOINTS = {
     SELLER_CASHBACK: (user_id: number) => API_URL + `cashback/${user_id}/seller`,
     CATEGORY_CASHBACK: (user_id: number) => API_URL + `cashback/${user_id}/category`,
     GET_CATEGORIES: () => API_URL + `category`,
-    GET_CHECKS: (user_id: number) => API_URL+`check/${user_id}`
+    GET_CHECKS: (user_id: number) => API_URL + `check/${user_id}`,
+    GET_OFFERS: (user_id: number, product_id: number) => API_URL + `offer/${user_id}/${product_id}`,
 }
 
 const baseConfig = {
