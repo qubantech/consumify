@@ -15,7 +15,12 @@ export const checks = () => {
     const store = {
         isFetching: false,
         items: itemsInitState,
-        totalCashBack: 0
+        totalCashBack: 0,
+        reset: () => {
+            store.isFetching = false;
+            store.items = itemsInitState;
+            store.totalCashBack = 0;
+        }
     }
 
     runInAction(() => {

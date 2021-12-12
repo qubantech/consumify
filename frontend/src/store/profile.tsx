@@ -15,6 +15,11 @@ const profile = () => {
         quitProfile(){
             store.id = 0
             //storeChecks = checks()
+        },
+        reset: () => {
+            store.isFetching = false
+            store.id = 0
+            store.colorID = 'red'
         }
     }
 

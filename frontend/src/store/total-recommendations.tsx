@@ -7,20 +7,26 @@ import {storeProfile} from "./profile";
 
 async function getCards () {
     let cardsList:CardInterface[] = []
+    //let idPrice:{price:number, cashback:number}[] = []
     let info1 = await recommendService.getRecommend(storeProfile.id)
-    let inf = info1.data
+    //let inf = info1.data
+    /*for (let i=0; i<16;i++){
+        let info2 = await recommendService.getAuthRecommend(storeProfile.id, info1.data[i].product.id)
+        //console.log(info2.data.seller)
+        idPrice.push({price:info2.data.price, cashback: info2.data.cashbackValue} )
+    }
+    console.log(idPrice)*/
+    let i = 0
     info1.data.forEach((item)=> {
-        //let info2 = await recommendService.getAuthRecommend(storeProfile.id, item.product.id)
-        cardsList.push({
-            name: item.product.name,
-            id: item.product.id,
-            price: item.offers[0].price,
-            cashback: item.offers[0].cashbackValue,
-            total:item.offers[0].seller.name,
-            partner: true
-        })
-
-    })
+                cardsList.push({
+                    name: item.product.name,
+                    id: item.product.id,
+                    price: item.offers[0].price,
+                    cashback: item.offers[0].cashbackValue,
+                    total: item.offers[0].seller.name,
+                    partner: true
+                })
+            })
     return cardsList
 }
 const cardsInitState:CardInterface[] = []
@@ -39,6 +45,13 @@ const totalRecommendations = () => {
             store.currentCards = store.cards.slice(inPage * (page - 1), inPage * page)
             store.currentPage = page
         },
+        reset: () => {
+            store.isFetching = false
+            store.cards = cardsInitState
+            store.currentCards = cardsInitState.slice(0, inPage)
+            store.total = 2
+            store.currentPage = 1
+        }
     }
 
     runInAction(() => {

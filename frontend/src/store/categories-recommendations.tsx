@@ -61,11 +61,7 @@ const categoriesRecommendations = () => {
         currentCards: cardsInitState.slice(0, inPage),
         total: 2,
         currentPage: 1,
-        setCurrentPage (page: number) {
-            store.currentCards = store.cards.slice(inPage * (page - 1), inPage * page)
-            store.currentPage = page
-        },
-        filterValue: 'American',
+        filterValue: 'supermarkets',
         filterOptions: [
             { label: 'Супермаркеты', value: 'supermarkets' },
             { label: 'Автозаправки', value: 'gas' },
@@ -77,8 +73,31 @@ const categoriesRecommendations = () => {
             { label: 'Зоомагазины', value: 'pet shops' },
             { label: 'Автосервисы', value: 'automobile services' },
         ],
+        setCurrentPage (page: number) {
+            store.currentCards = store.cards.slice(inPage * (page - 1), inPage * page)
+            store.currentPage = page
+        },
         setFilterValue (value:string) {
             store.filterValue = value
+        },
+        reset: () => {
+            store.isFetching = false
+            store.cards = cardsInitState
+            store.currentCards = cardsInitState.slice(0, inPage)
+            store.total = 2
+            store.currentPage = 1
+            store.filterValue = 'supermarkets'
+            store.filterOptions = [
+                { label: 'Супермаркеты', value: 'supermarkets' },
+                { label: 'Автозаправки', value: 'gas' },
+                { label: 'Одежда', value: 'clothes' },
+                { label: 'Мебель и бытовая техника', value: 'furniture and household appliances' },
+                { label: 'Фастфуд', value: 'fast food' },
+                { label: 'Игры', value: 'games' },
+                { label: 'Апетеки', value: 'pharmacies' },
+                { label: 'Зоомагазины', value: 'pet shops' },
+                { label: 'Автосервисы', value: 'automobile services' },
+            ]
         }
         // changeFilter (value: string) {
         //     store.currentPage = 1;
