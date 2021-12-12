@@ -5,6 +5,7 @@ import {storeProfile} from "./profile";
 import {categoryService} from "../http/api-services/category-service";
 import {Category} from "../http/models/category-models/category";
 
+
 const tempdata = [{
         image: 'https://img.icons8.com/clouds/256/000000/futurama-bender.png',
         label: 'Супермаркеты',
@@ -44,7 +45,6 @@ export const CashBacksList = () => {
             store.isOpen = st
             console.log(store.isOpen)
         },
-
         confirmDelete: -1,
         setConfirmDelete (id: number) {
             store.confirmDelete = id
@@ -118,7 +118,17 @@ export const CashBacksList = () => {
         subscriptionsUserList: subscriptionsUserListInitState,
 
         partnersUserList: PartnersUserListInitState,
-        partnersAllList: PartnersAllListInitState
+        partnersAllList: PartnersAllListInitState,
+        reset: () => {
+            store.isFetching = false
+            store.isOpen = false
+            store.confirmDelete = -1
+            store.subscriptionsAllListReference = subscriptionsAllList
+            store.subscriptionsAllList = subscriptionsAllList
+            store.subscriptionsUserList = subscriptionsUserListInitState
+            store.partnersUserList = PartnersUserListInitState
+            store.partnersAllList = PartnersAllListInitState
+        }
     }
 
     runInAction(() => {

@@ -45,6 +45,13 @@ const totalRecommendations = () => {
             store.currentCards = store.cards.slice(inPage * (page - 1), inPage * page)
             store.currentPage = page
         },
+        reset: () => {
+            store.isFetching = false
+            store.cards = cardsInitState
+            store.currentCards = cardsInitState.slice(0, inPage)
+            store.total = 2
+            store.currentPage = 1
+        }
     }
 
     runInAction(() => {
