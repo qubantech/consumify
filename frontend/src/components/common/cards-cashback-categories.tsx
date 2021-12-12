@@ -34,9 +34,9 @@ export const CardsCashbackCategories = (props:{
                         </ActionIcon>
                     </Group>
                     <Space h={"xs"}/>
-                    <Group spacing={"xs"} grow direction={mdscreen ? "row" : "column"}>
-                        <Text lineClamp={1} align={mdscreen ? "right" : "left"} size={"sm"}> 399 рублей/месяц</Text>
+                    <Group align={"left"} spacing={"xs"} grow direction={mdscreen ? "row" : "column"}>
                         <Text lineClamp={1} size={"xs"} color={"gray"}>Ближайшая дата списания: {date.toLocaleDateString()}</Text>
+                        <Text lineClamp={1} align={mdscreen ? "right" : "left"} size={"sm"}> 399 рублей/месяц</Text>
                     </Group>
                     <Space h={"xs"}/>
                     <Text size={"xs"} color={"gray"}>{"MCC: "+props.mcc + ". " +  props.description}

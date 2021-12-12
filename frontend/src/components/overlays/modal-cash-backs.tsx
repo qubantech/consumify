@@ -24,6 +24,7 @@ import mir from '../../assets/mir-logo.svg'
 import { CardsCashbackPartners } from '../common/cards-cashback-partners';
 import { CardsCashbackCategories } from '../common/cards-cashback-categories';
 import { SelectSubscriptions } from '../common/select-subscriptions';
+import {storeChecks} from "../../store";
 
 
 export const ModalCashBacks = observer(() => {
@@ -65,7 +66,11 @@ export const ModalCashBacks = observer(() => {
                     <Center>
                         <Group spacing={'xs'} noWrap>
                             <Title order={5}> Было сэкономлено:</Title>
-                            <Text size={'xl'} weight={'800'} color={'green'}>432 рубля</Text>
+                            {!storeChecks.isFetching ?
+                                <Text size={'xl'} weight={'800'}
+                                      color={'green'}>{storeChecks.totalCashBack} рублей</Text>
+                                : <Skeleton height={40}/>
+                            }
                         </Group>
                     </Center>
                     <Space h={'xs'}/>

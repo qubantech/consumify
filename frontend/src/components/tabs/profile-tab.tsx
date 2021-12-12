@@ -37,15 +37,6 @@ export const ProfileTab = observer(() => {
                             : <Skeleton height={600}/>
                         }
                     </Grid>
-                    {/*<Grid>*/}
-                    {/*    {*/}
-                    {/*        checks.map( (check) => {*/}
-                    {/*            return (*/}
-                    {/*                <Col span={12} xs={12} md={6}></Col>*/}
-                    {/*            )*/}
-                    {/*        })*/}
-                    {/*    }*/}
-                    {/*</Grid>*/}
                 </Container>
         </>
 
