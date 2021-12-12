@@ -10,6 +10,7 @@ async function getCards () {
     let info1 = await recommendService.getRecommend(storeProfile.id)
     let inf = info1.data
     info1.data.forEach((item)=> {
+        //let info2 = await recommendService.getAuthRecommend(storeProfile.id, item.product.id)
         cardsList.push({
             name: item.product.name,
             id: item.product.id,
