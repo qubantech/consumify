@@ -1,4 +1,4 @@
-import {Container, Grid, Col, Space, useMantineColorScheme, Skeleton} from "@mantine/core";
+import {Container, Grid, Col, Space, useMantineColorScheme, Skeleton, Center, Title} from "@mantine/core";
 import {storeProfile} from "../../store/profile";
 import CheckItem from "../profile-tab-blocks/checkItem";
 import React from "react";
@@ -11,6 +11,7 @@ export const ProfileTab = observer(() => {
     const {isFetching, items} = storeChecks
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const dark = colorScheme === 'dark';
+
 
     return (
         <>
@@ -26,8 +27,10 @@ export const ProfileTab = observer(() => {
                     })}
                 >
                     <StartAndProfileBlock/>
-                    <Space/>
-                    <Grid>
+                    <Space h={"xs"}/>
+                    <Title order={3}>Мои чеки</Title>
+                    <Space h={"md"}/>
+                    <Grid justify="center" gutter={"xs"}>
                         {(items || !isFetching) ?
                             items.map((item)=>
                                 <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>

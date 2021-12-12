@@ -18,7 +18,6 @@ export const ModalDeleteSubscriptions = observer(() => {
             opened={confirmDelete !== -1}
             onClose={() => setConfirmDelete(-1)}
             title={'Точно хотите отменить подписку?'}>
-            size={'xs'}
             <Group grow>
                 <Button color={'green'}
                         leftIcon={<Cross1Icon/>}
