@@ -10,6 +10,7 @@ import {useColorScheme, useMediaQuery} from "@mantine/hooks";
 import {ModalCashBacks} from "./components/overlays/modal-cash-backs";
 import {LoginTab} from "./components/tabs/login-tab";
 import {storeProfile} from "./store/profile";
+import { RecommendationDrawer } from "./components/shared/recommendation-drawer";
 
 
 const shellStyle = (theme: MantineTheme) => ({
@@ -59,6 +60,7 @@ const App = () => {
                     },
                 }}>
                 <BrowserRouter>
+                    <RecommendationDrawer/>
                     <ModalCashBacks/>
                     <AppShell style={{paddingTop: mdscreen ? 66 : 0, paddingBottom: mdscreen ? 0 : 49}} header={<Header/>} styles={shellStyle}>
                         <Routes>
