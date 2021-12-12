@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/consumify/static/css/main.e2ae88ff.chunk.css",
-    "main.js": "/consumify/static/js/main.9ffbef94.chunk.js",
-    "main.js.map": "/consumify/static/js/main.9ffbef94.chunk.js.map",
+    "main.js": "/consumify/static/js/main.38d12335.chunk.js",
+    "main.js.map": "/consumify/static/js/main.38d12335.chunk.js.map",
     "runtime-main.js": "/consumify/static/js/runtime-main.c587c084.js",
     "runtime-main.js.map": "/consumify/static/js/runtime-main.c587c084.js.map",
     "static/js/2.e0546ec0.chunk.js": "/consumify/static/js/2.e0546ec0.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.c587c084.js",
     "static/js/2.e0546ec0.chunk.js",
     "static/css/main.e2ae88ff.chunk.css",
-    "static/js/main.9ffbef94.chunk.js"
+    "static/js/main.38d12335.chunk.js"
   ]
 }
