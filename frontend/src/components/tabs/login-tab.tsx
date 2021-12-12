@@ -21,6 +21,7 @@ import DarkThemeLogo from '../../assets/consumify-black-theme-logo.svg';
 import LightThemeTextLogo from '../../assets/consumify-black-text-logo.svg';
 import LightThemeLogo from '../../assets/consumify-white-theme-logo.svg';
 import DarkThemeTextLogo from '../../assets/consumify-white-text-logo.svg';
+import { PATHS } from "../../misc/paths";
 
 
 export const LoginTab = () => {
@@ -35,7 +36,7 @@ export const LoginTab = () => {
     const [ userId, setUserId ] = useState<number | undefined>(undefined)
 
 
-    const goHome = () => navigate(`/`)
+    const goHome = () => navigate(PATHS.HOME)
 
     const onEnter = () => {
         setID(Number(userId))

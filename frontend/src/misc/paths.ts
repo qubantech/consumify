@@ -1,9 +1,9 @@
 export const PATHS = {
-    HOME: '',
-    LOGIN: 'login',
-    CATALOG: 'catalog',
-    PROFILE: 'profile',
-    PRODUCT: (product_id: number) => `product/${product_id}`,
+    HOME: '/consumify',
+    LOGIN: '/consumify/login',
+    CATALOG: '/consumify/catalog',
+    PROFILE: '/consumify/profile',
+    PRODUCT: (product_id: number) => `/consumify/product/${product_id}`,
 }
 
 export const DISPLAY_NONE = {

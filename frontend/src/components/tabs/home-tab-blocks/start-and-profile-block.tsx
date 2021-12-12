@@ -8,7 +8,7 @@ import { observer } from 'mobx-react-lite';
 import { ProfileIconHeader } from '../../shared/profile-icon-header';
 import { useNavigate } from 'react-router-dom';
 import { storeProfile } from '../../../store';
-import { DISPLAY_NONE } from '../../../misc/paths';
+import { DISPLAY_NONE, PATHS } from '../../../misc/paths';
 import { useMediaQuery } from "@mantine/hooks";
 
 
@@ -25,7 +25,7 @@ export const StartAndProfileBlock = observer(() => {
     const onQuit = () => {
         return () => {
             quitProfile()
-            navigate(`/login`)
+            navigate(PATHS.LOGIN)
             window.location.reload()
         }
     }

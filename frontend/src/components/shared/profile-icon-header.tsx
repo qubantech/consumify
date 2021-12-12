@@ -46,7 +46,7 @@ export const ProfileIconHeader = observer((props: { avatarSize: MantineNumberSiz
                             </UnstyledButton>
                         </Link>
                         :
-                        <UnstyledButton onClick={onProfileClick('/profile')}>
+                        <UnstyledButton onClick={onProfileClick(PATHS.PROFILE)}>
                             <Group spacing={'xs'}>
                                 <Avatar radius='xl' size={props.avatarSize} sx={{
                                     backgroundColor: storeProfile.colorID
