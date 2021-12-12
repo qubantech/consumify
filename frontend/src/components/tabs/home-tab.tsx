@@ -12,16 +12,18 @@ export const HomeTab = () => {
     const mdScreen = useMediaQuery('(min-width: 992px)');
     
     return (
-        <Container className={'home-tab'} padding='sm' sx={
+        <Container className={'home-tab'} sx={
             (theme) => ({
-                paddingTop: 10,
-                paddingBottom: 10,
+                padding: 0,
                 borderRadius: '10px',
                 height: '100%',
                 '@media (max-width: 768px)': {
                     maxWidth: '760px',
                 },
                 '@media (max-width: 415px)': {
+                    maxWidth: '414px',
+                },
+                '@media (max-width: 376px)': {
                     maxWidth: '374px',
                 },
                 '@media (max-width: 320px)': {
