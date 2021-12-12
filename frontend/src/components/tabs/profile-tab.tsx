@@ -24,9 +24,11 @@ export const ProfileTab = () => {
                 <Space/>
                 <Skeleton visible={!isFetching}>
                     <Grid>
+                        <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
                         <Col span={12} xs={12} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
                             <Check/>
                         </Col>
+                        <Col  span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "right"}}>
                         <Col span={12} xs={12} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
                             <Check/>
                         </Col>

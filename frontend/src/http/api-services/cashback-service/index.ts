@@ -4,9 +4,9 @@ import { CategoryCashbackSubscriptionModel, DefaultCashbackModel, SellerCashback
 
 const CashbackService = () => {
 
-    const getDefaultCashbackList = async (userId: number) => {
+    const getDefaultCashbackList = async () => {
         let response = await $api.get<Array<DefaultCashbackModel>>(
-            ENDPOINTS.DEFAULT_CASHBACK(userId)
+            ENDPOINTS.DEFAULT_CASHBACK()
         )
         return {
             status: response.status,
@@ -26,7 +26,7 @@ const CashbackService = () => {
 
     const getCategoryCashbackList = async (userId: number) => {
         let response = await $api.get<Array<CategoryCashbackSubscriptionModel>>(
-            ENDPOINTS.SELLER_CASHBACK(userId)
+            ENDPOINTS.CATEGORY_CASHBACK(userId)
         )
         return {
             status: response.status,
@@ -36,7 +36,7 @@ const CashbackService = () => {
 
     const makeSubscription = async (userId: number, categoryId: number) => {
         let response = await $api.post<string>(
-            ENDPOINTS.CATEGORY_CASHBACK(userId) + `?category_id=${categoryId}`
+            ENDPOINTS.CATEGORY_CASHBACK(userId) + `/${categoryId}`
         )
         return {
             status: response.status,
@@ -46,7 +46,7 @@ const CashbackService = () => {
 
     const cancelSubscription = async (userId: number, subscriptionId: number) => {
         let response = await $api.delete<string>(
-            ENDPOINTS.CATEGORY_CASHBACK(userId) + `?subscription_id=${subscriptionId}`
+            ENDPOINTS.CATEGORY_CASHBACK(userId) + `/${subscriptionId}`
         )
         return {
             status: response.status,
