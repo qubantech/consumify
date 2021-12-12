@@ -1,23 +1,21 @@
 import React from 'react'
 
 import { Card, Title, Text, Space, Paper, Center, Group, Transition } from '@mantine/core'
-import {useHover} from '@mantine/hooks'
+import { useHover } from '@mantine/hooks'
 import { PromoCodeInterface } from '../@types'
 
 
 export const PromoCode = (props: {
     promoCode: PromoCodeInterface
 }) => {
-    
+
     const { hovered, ref } = useHover()
 
-
     return (
-        <div style={{ position: 'relative', width: '7.5em'}} ref={ref}>
-            <Card shadow='sm'  sx={
+        <div style={{ width: '125px', position: 'relative' }} ref={ref}>
+            <Card shadow='sm' padding='xs' sx={
                 (theme) => ({
-                    padding: '0.3em',
-                    height: '7.5em',
+                    height: '140px',
                     background: theme.colorScheme === 'dark' ? `linear-gradient(to bottom right, ${props.promoCode.color} 1%, #373A40 )` : `linear-gradient(to bottom right, ${props.promoCode.color} 1%, white )`,
                 })}>
                 <Text size='md' weight='bold' sx={
@@ -26,13 +24,14 @@ export const PromoCode = (props: {
                     })}>{props.promoCode.shop}</Text>
                 <Transition mounted={!hovered} transition='pop' duration={300} timingFunction='ease'>
                     {(styles) =>
-                        <Group direction={'row'} spacing={10} position={'apart'}
-                               style={{ ...styles, position: 'absolute', width: '110px'}}>
+                        <Group direction={'row'} spacing={10}
+                               style={{ ...styles, position: 'absolute', top: 50, width: '100px' }}>
                             <Text size='xs' sx={
                                 (theme) => ({
                                     color: theme.colorScheme === 'light' ? '#2C2E33' : '#C1C2C5',
                                     lineHeight: 1,
                                 })}>{props.promoCode.description}</Text>
+                            {/*<Space h='xs'/>*/}
                             <Title order={6} sx={
                                 (theme) => ({
                                     color: theme.colorScheme === 'light' ? '#000' : '#C1C2C5',

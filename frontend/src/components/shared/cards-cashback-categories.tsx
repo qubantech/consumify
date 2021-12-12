@@ -5,7 +5,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import { Cross1Icon } from '@radix-ui/react-icons';
 
 import { storeCashBacks } from '../../store';
-import { ModalDeleteSubscriptions } from './modal-delete-subscriptions';
+import { ModalDeleteSubscriptions } from '../shared/modal-delete-subscriptions';
 
 export const CardsCashbackCategories = () => {
 

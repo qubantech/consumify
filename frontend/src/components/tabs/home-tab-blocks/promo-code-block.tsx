@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Col, Space, Spoiler, Title} from '@mantine/core';
+import { Group, Space, Spoiler, Title } from '@mantine/core';
 import { PromoCode } from '../../shared';
 import { PromoCodeInterface } from '../../@types';
 
@@ -8,7 +8,7 @@ const data = [
     {
         shop: 'Пятерочка',
         title: '5 доставок за 1₽',
-        description: 'Доставка еды',
+        description: 'Доставка продуктов',
         color: 'red',
         code: 'firstorder',
     },
@@ -77,17 +77,15 @@ export const PromoCodeBlock = () => {
             <Title order={2}>Промокоды</Title>
             <Space/>
             <Spoiler maxHeight={170} hideLabel={'Свернуть'} showLabel={'Показать все предложения'}>
-                <Grid gutter={'xs'}>
+                <Group spacing={'sm'} position='center'>
                     {
                         data.map((item: PromoCodeInterface) => {
                             return (
-                                <Col span={6}>
-                                    <PromoCode promoCode={item}/>
-                                </Col>
+                                <PromoCode promoCode={item}/>
                             )
                         })
                     }
-                </Grid>
+                </Group>
             </Spoiler>
             <Space/>
         </div>

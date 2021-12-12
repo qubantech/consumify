@@ -82,10 +82,11 @@ export const ModalCashBacks = observer(() => {
                                      label={<Title order={6}>Персональный кэшбек</Title>}/>
                             <Space h={'md'}/>
                             {partnersUserList ? partnersUserList.map((item) =>
-                                    <CardsCashbackPartners imageUrl={item.seller.imageUrl}
-                                                           percent={item.percent}
-                                                           name={item.seller.name}
-                                                           description={item.description}
+                                    <CardsCashbackPartners
+                                        // imageUrl={item.seller.imageUrl}
+                                        //                    percent={item.percent}
+                                        //                    name={item.seller.name}
+                                        //                    description={item.description}
                                     />
                                 ) :
                                 <Skeleton height={100}/>
@@ -96,10 +97,11 @@ export const ModalCashBacks = observer(() => {
                                      label={<Title order={6}>Повышенный кэшбек</Title>}/>
                             <Space h={'md'}/>
                             {partnersAllList ? partnersAllList.map((item) =>
-                                <CardsCashbackPartners imageUrl={item.seller.imageUrl}
-                                                       percent={item.percent}
-                                                       name={item.seller.name}
-                                                       description={item.description}
+                                <CardsCashbackPartners
+                                    // imageUrl={item.seller.imageUrl}
+                                    //                    percent={item.percent}
+                                    //                    name={item.seller.name}
+                                    //                    description={item.description}
                                 />
                             ) :
                                 <Skeleton height={100}/>
@@ -117,11 +119,12 @@ export const ModalCashBacks = observer(() => {
                                      label={<Title order={6}>Действующие подписки</Title>}/>
                             <Space h={'md'}/>
                             {subscriptionsUserList ? subscriptionsUserList.map((item)=>
-                                <CardsCashbackCategories name={item.categoryCashback.category.name}
-                                                         mcc ={item.categoryCashback.category.id}
-                                                         percent ={item.categoryCashback.percent}
-                                                         description = {item.categoryCashback.description}
-                                                         until = {item.subscribedUntil}
+                                <CardsCashbackCategories
+                                    // name={item.categoryCashback.category.name}
+                                    //                      mcc ={item.categoryCashback.category.id}
+                                    //                      percent ={item.categoryCashback.percent}
+                                    //                      description = {item.categoryCashback.description}
+                                    //                      until = {item.subscribedUntil}
                                 />
                             ):
                                 <Skeleton height={100}/>}

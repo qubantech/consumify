@@ -8,22 +8,20 @@ import { useMediaQuery } from '@mantine/hooks';
 
 
 export const HomeTab = () => {
-    
+
     const mdScreen = useMediaQuery('(min-width: 992px)');
-    
+
     return (
-        <Container className={'home-tab'} sx={
+        <Container className={'home-tab'} padding='sm' sx={
             (theme) => ({
-                padding: 0,
+                paddingTop: 10,
+                paddingBottom: 10,
                 borderRadius: '10px',
                 height: '100%',
                 '@media (max-width: 768px)': {
                     maxWidth: '760px',
                 },
                 '@media (max-width: 415px)': {
-                    maxWidth: '414px',
-                },
-                '@media (max-width: 376px)': {
                     maxWidth: '374px',
                 },
                 '@media (max-width: 320px)': {

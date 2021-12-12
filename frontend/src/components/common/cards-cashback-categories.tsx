@@ -2,7 +2,7 @@ import {ActionIcon, Avatar, Card, Group, Space, Spoiler, Text} from "@mantine/co
 import {useMediaQuery} from "@mantine/hooks";
 import {Cross1Icon} from "@radix-ui/react-icons";
 import {storeCashBacks} from "../../store/cashbacks-list";
-import {ModalDeleteSubscriptions} from "./modal-delete-subscriptions";
+import {ModalDeleteSubscriptions} from "../shared/modal-delete-subscriptions";
 
 export const CardsCashbackCategories = (props:{
     name:string,

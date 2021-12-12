@@ -4,4 +4,5 @@ export interface SellerCashbackModel {
     seller: SellerModel,
     percent: number,
     description: string,
+
 }
