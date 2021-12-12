@@ -4,13 +4,7 @@ import {storeProfile} from "../../store/profile";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "@mantine/hooks";
-import React, { useState } from 'react'
-
-import { Button, Center, Group, Input, Space, Title } from '@mantine/core'
-import { RocketIcon } from '@radix-ui/react-icons'
-
-import { storeProfile } from '../../store'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
 
 export const LoginTab = () => {
