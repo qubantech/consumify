@@ -50,7 +50,7 @@ export const SelectSubscriptions = observer(() => {
                     <Button onClick={()=> addSubscription(Number(value))}>
                         Купить подписку
                     </Button>
-                    <Text>До 13.01.2022</Text>
+                    <Text>До 11.01.2022</Text>
                 </Group>
             </Center>
         </>
