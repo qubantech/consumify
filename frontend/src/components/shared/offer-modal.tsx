@@ -45,7 +45,9 @@ export const OfferModal = (props: {
 
     const [ opened, setOpened ] = useState(true)
 
+    const desktopSize = useMediaQuery('(min-width: 588px)');
     const mobileSize = useMediaQuery('(max-width: 587px)')
+    const xsMobileSize = useMediaQuery('(max-width: 321px)')
 
     const digitsAfterDot = (num: number, digits: number) => Math.round(num * (10 ** digits)) / 10 ** digits
 
@@ -58,7 +60,7 @@ export const OfferModal = (props: {
                 transition="fade"
                 transitionDuration={600}
                 transitionTimingFunction="ease"
-                size={ '100%' }
+                size={ mobileSize ? '100%' : desktopSize ? '50%' : '70%' }
                 padding={'xs'}
                 overflow={'outside'}
             >
@@ -72,7 +74,7 @@ export const OfferModal = (props: {
                                         sx={(theme) => ({
                                             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
                                             textAlign: 'center',
-                                            padding: theme.spacing.sm,
+                                            padding: xsMobileSize ? theme.spacing.xs : theme.spacing.sm,
                                             borderRadius: theme.radius.md,
                                             cursor: 'pointer',
 
@@ -99,7 +101,9 @@ export const OfferModal = (props: {
                                                             Кэшбэк: {digitsAfterDot(offer.cashbackValue, 2)}₽
                                                         </Text>
                                                     </Group>
-                                                    <Space w={20}/>
+                                                    {
+                                                        !xsMobileSize && <Space w={20}/>
+                                                    }
                                                     <Button size='xs'>
                                                         {offer.price} ₽
                                                     </Button>
