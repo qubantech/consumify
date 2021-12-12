@@ -18,10 +18,12 @@ const check = () => {
     }
 
     runInAction(() => {
+        store.isFetching = true
         if (storeProfile.id != 0) {
             getAllChecks()
                 .then((resp) => {
                     store.items = resp
+                    store.isFetching = false
                 })
                 .catch((err)=> {})
         }

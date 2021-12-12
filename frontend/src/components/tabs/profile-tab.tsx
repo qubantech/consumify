@@ -15,8 +15,6 @@ export const ProfileTab = observer(() => {
 
     return (
         <>
-            {
-                !isFetching &&
                 <Container size='sm' padding='sm' sx={
                     (theme) => ({
                         paddingTop: 10,
@@ -31,12 +29,12 @@ export const ProfileTab = observer(() => {
                     <Title order={3}>Мои чеки</Title>
                     <Space h={"md"}/>
                     <Grid justify="center" gutter={"xs"}>
-                        {(items || !isFetching) ?
+                        {(!items|| !isFetching) ?
                             items.map((item)=>
-                                <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
+                                <Col key={item.id} span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
                                     <CheckItem item={item}/>
                                 </Col>)
-                            : <Skeleton height={200}/>
+                            : <Skeleton height={600}/>
                         }
                     </Grid>
                     {/*<Grid>*/}
@@ -49,7 +47,6 @@ export const ProfileTab = observer(() => {
                     {/*    }*/}
                     {/*</Grid>*/}
                 </Container>
-            }
         </>
 
     )
