@@ -1,68 +1,78 @@
-import {Button, Center, Group, Input, Space, TextInput, Title} from "@mantine/core";
-import {RocketIcon} from "@radix-ui/react-icons";
-import {storeProfile} from "../../store/profile";
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {useForm} from "@mantine/hooks";
-import React from 'react'
+import React, { useState } from 'react'
+
+import { Button, Center, Checkbox, Group, Image, NumberInput, Space, Title } from '@mantine/core'
+import { RocketIcon } from '@radix-ui/react-icons'
+
+import { storeProfile } from '../../store'
+import { useNavigate } from 'react-router-dom'
+import { useForm, useMediaQuery } from "@mantine/hooks";
+import DarkThemeLogo from "../../assets/consumify-black-theme-logo.svg";
+import LightThemeTextLogo from "../../assets/consumify-white-text-logo.svg";
 
 
 export const LoginTab = () => {
 
+    let navigate = useNavigate()
     const { setID } = storeProfile
 
-    const [ value, setValue ] = useState('')
-    let navigate = useNavigate();
+    const [ userId, setUserId ] = useState<number | undefined>(undefined)
+
+
+    const goHome = () => navigate(`/`)
 
     const onEnter = () => {
-        return () => {
-            setID(Number(value))
-            navigate(`/`)
-        }
+        setID(Number(userId))
+        goHome()
     }
 
-    const form = useForm({
+    const onUserIdInput = (event: any) => setUserId(event.target.value)
+
+
+    const form = useForm<{
+        userId: number | null
+    }>({
         initialValues: {
-            id: '',
+            userId: null,
         },
         validationRules: {
-            id: (value) => {return /^\d+$/.test(value)},
+            userId: (value) => value
+                ? value > 0 && value < 3000
+                : false,
         },
+    })
 
-    });
-
+    const mediumScreen = useMediaQuery('(min-width: 576px)');
 
 
     return (
-        <>
-            <Center>
-                <Group position={"center"} direction={"row"}  sx={{alignItems: 'start'}}>
-                    <Space h={"md"}/>
-                    <Title align={"center"} order={2}>
-                        Введите ID для просмотра рекомендаций конкретного пользователя
+        <Center>
+            <Group position={'center'} direction={'row'}>
+                <form onSubmit={onEnter}>
+                    <Image src={LightThemeTextLogo}
+                           alt="dark-theme-logo"/>
+                    <Space h={'md'}/>
+                    <Title align={'center'} order={mediumScreen ? 3 : 5}>
+                        Введите ID для просмотра рекомендаций
                     </Title>
-                    <Space h={"xl"}/>
-                    <TextInput
-                        data-autofocus
+                    <Space h={'xl'}/>
+                    <NumberInput
                         icon={<RocketIcon/>}
-                        required
-                        placeholder="Type ID"
-                        {...form.getInputProps('id')}
-                        value = {value}
-                        error={form.errors.id && 'ID must include only numbers.'}
-                        onBlur={() => form.validateField('id')}
-                        onInput = {(e:any) => setValue(e.target.value)}
+                        placeholder={'Введите ID пользователя'}
+                        value={userId}
+                        onInput={onUserIdInput}
+                        hideControls
                     />
-                    <Button type="submit" onClick={onEnter()}>Login</Button>
-
-                    {/*<Input icon={<RocketIcon/>}*/}
-                    {/*       placeholder={"Type ID"}*/}
-                    {/*       value = {value}*/}
-                    {/*       onInput = {(e:any) => setValue(e.target.value)}*/}
-                    {/*/>*/}
-                    {/*<Button onClick={onEnter()}>Login</Button>*/}
-                </Group>
-            </Center>
-        </>
+                    <Space h={'md'}/>
+                    <Checkbox
+                        label="I agree to sell my privacy"
+                        color="grape"
+                    />
+                    <Space h={'xs'}/>
+                    <Button onClick={onEnter} fullWidth>
+                        Войти
+                    </Button>
+                </form>
+            </Group>
+        </Center>
     )
 }

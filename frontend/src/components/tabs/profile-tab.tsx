@@ -11,6 +11,7 @@ export const ProfileTab = () => {
     const { isFetching } = storeProfile
 
     return (
+        <>
             <Container size='sm' padding='sm' sx={
                 (theme) => ({
                     paddingTop: 10,
@@ -21,16 +22,18 @@ export const ProfileTab = () => {
             >
                 <StartAndProfileBlock/>
                 <Space/>
-                <Skeleton visible={!isFetching}>
+                <Skeleton visible={isFetching}>
                     <Grid>
-                        <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
+                        <Col span={12} xs={12} md={6} style={{ display: 'flex', justifyContent: 'left' }}>
                             <Check/>
                         </Col>
-                        <Col  span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "right"}}>
+                        <Col span={12} xs={12} md={6} style={{ display: 'flex', justifyContent: 'right' }}>
                             <Check/>
                         </Col>
                     </Grid>
                 </Skeleton>
             </Container>
+        </>
     )
+
 }
