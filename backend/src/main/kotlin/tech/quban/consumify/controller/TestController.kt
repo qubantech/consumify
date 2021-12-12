@@ -43,13 +43,33 @@ class TestController(
     @GetMapping("/user/{userId}")
     fun t(@PathVariable userId: Long) {
         System.out.printf(
-            "\n\n\t\tRECOMMENDATION BY PRODUCTS:" + metrixService.makeRecommendationByProduct(userId, userProductMoneyMap, 8, 16)
-                .toString() + "\n\n"
+            "\n\t\tCOS BY PRODUCTS:" + metrixService.makeRecommendationByProductCos(userId, userProductMoneyMap, 8, 16)
+                .toString() + "\n"
         )
 
         System.out.printf(
-            "\n\n\t\tRECOMMENDATION BY CATEGORY:" + metrixService.makeRecommendationByCategory(userId, userCategoryMoneyMap, 8, 16)
-                .toString() + "\n\n"
+            "\n\t\tCOS BY CATEGORY:" + metrixService.makeRecommendationByCategoryCos(userId, userCategoryMoneyMap, 8, 16)
+                .toString() + "\n"
+        )
+
+        System.out.printf(
+            "\n\t\tSzymkiewicz BY PRODUCTS:" + metrixService.makeRecommendationByProductSzymkiewicz(userId, userProductMoneyMap, 8, 16)
+                .toString() + "\n"
+        )
+
+        System.out.printf(
+            "\n\t\tSzymkiewicz BY CATEGORY:" + metrixService.makeRecommendationByCategorySzymkiewicz(userId, userCategoryMoneyMap, 8, 16)
+                .toString() + "\n"
+        )
+
+        System.out.printf(
+            "\n\t\tJakkar BY PRODUCTS:" + metrixService.makeRecommendationByProductJakkar(userId, userProductMoneyMap, 8, 16)
+                .toString() + "\n"
+        )
+
+        System.out.printf(
+            "\n\t\tJakkar BY CATEGORY:" + metrixService.makeRecommendationByProductJakkar(userId, userCategoryMoneyMap, 8, 16)
+                .toString() + "\n"
         )
     }
 }
