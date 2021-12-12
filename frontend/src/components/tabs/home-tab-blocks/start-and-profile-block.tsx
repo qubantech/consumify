@@ -25,6 +25,7 @@ export const StartAndProfileBlock = observer(() => {
         return () => {
             quitProfile()
             navigate(`/login`)
+            window.location.reload()
         }
     }
 
