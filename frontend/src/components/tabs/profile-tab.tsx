@@ -3,7 +3,7 @@ import {storeProfile} from "../../store/profile";
 import CheckItem from "../profile-tab-blocks/checkItem";
 import React from "react";
 import {StartAndProfileBlock} from "../tabs/home-tab-blocks/start-and-profile-block";
-import {storeChecks} from "../../store/check";
+import {storeChecks} from "../../store/checks";
 import {observer} from "mobx-react-lite";
 
 export const ProfileTab = observer(() => {
@@ -15,8 +15,6 @@ export const ProfileTab = observer(() => {
 
     return (
         <>
-            {
-                !isFetching &&
                 <Container size='sm' padding='sm' sx={
                     (theme) => ({
                         paddingTop: 10,
@@ -31,25 +29,15 @@ export const ProfileTab = observer(() => {
                     <Title order={3}>Мои чеки</Title>
                     <Space h={"md"}/>
                     <Grid justify="center" gutter={"xs"}>
-                        {(items || !isFetching) ?
+                        {(!items|| !isFetching) ?
                             items.map((item)=>
-                                <Col span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
+                                <Col key={item.id} span={12} xs={12} md={6} style={{display: 'flex', justifyContent: "left"}}>
                                     <CheckItem item={item}/>
                                 </Col>)
-                            : <Skeleton height={200}/>
+                            : <Skeleton height={600}/>
                         }
                     </Grid>
-                    {/*<Grid>*/}
-                    {/*    {*/}
-                    {/*        checks.map( (check) => {*/}
-                    {/*            return (*/}
-                    {/*                <Col span={12} xs={12} md={6}></Col>*/}
-                    {/*            )*/}
-                    {/*        })*/}
-                    {/*    }*/}
-                    {/*</Grid>*/}
                 </Container>
-            }
         </>
 
     )

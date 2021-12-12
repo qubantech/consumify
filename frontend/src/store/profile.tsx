@@ -1,5 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import {getColor} from "../methods/color-picker";
+import {checks, storeChecks} from "./checks";
 
 const profile = () => {
     const store = {
@@ -13,6 +14,7 @@ const profile = () => {
         },
         quitProfile(){
             store.id = 0
+            //storeChecks = checks()
         }
     }
 
