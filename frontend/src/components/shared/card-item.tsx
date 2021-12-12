@@ -6,13 +6,14 @@ import { PlusIcon } from '@radix-ui/react-icons'
 import { CardInterface } from "../@types";
 
 import { getColor } from "../../methods/color-picker";
+import {storeTotalRecommendations} from "../../store";
 
 
 export const CardItem = (props: { card: CardInterface }) => {
 
     return (
         <div style={{width: '260px'}}>
-            <Card shadow='md' padding='xs' style={{height:"100%"}} onClick={()=>{}}>
+            <Card shadow='md' padding='xs' style={{height:"100%"}} onClick={()=>storeTotalRecommendations.onClickOffers(props.card.id)}>
                 <Card.Section>
                     <div style={{
                         marginTop: '-20px',
@@ -41,7 +42,7 @@ export const CardItem = (props: { card: CardInterface }) => {
                         </Group>
                     </div>
                 </Card.Section>
-                <Group position="apart" sx={{ marginBottom: 5, marginTop: 10 }}>
+                <Group direction="column" position="apart" sx={{ marginBottom: 5, marginTop: 10 }}>
                     <Text>
                         {props.card.name}
                     </Text>

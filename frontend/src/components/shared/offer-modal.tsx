@@ -21,9 +21,11 @@ import {
 import { getColor } from "../../methods/color-picker";
 import { OfferModel } from "../../http/models/offer-models/offer-model";
 import { useMediaQuery } from "@mantine/hooks";
+import {observer} from "mobx-react-lite";
+import {storeTotalRecommendations} from "../../store";
 
 
-export const OfferModal = (props: {
+export const OfferModal = observer((props: {
     product: {
         id: number,
         name: string,
@@ -49,12 +51,16 @@ export const OfferModal = (props: {
 
     const digitsAfterDot = (num: number, digits: number) => Math.round(num * (10 ** digits)) / 10 ** digits
 
+    const onClose = () => {
+        storeTotalRecommendations.currOffers = []
+        //setOpened(false)
+    }
 
     return (
         <>
             <Modal
-                opened={opened}
-                onClose={() => setOpened(false)}
+                opened={storeTotalRecommendations.open}
+                onClose={() => storeTotalRecommendations.onClose()}
                 transition="fade"
                 transitionDuration={600}
                 transitionTimingFunction="ease"
@@ -66,7 +72,7 @@ export const OfferModal = (props: {
                     <Group direction="column">
                         <Title order={3}>{props.product.name}</Title>
                         {
-                            props.offers.map(offer => {
+                            storeTotalRecommendations.currOffers.map(offer => {
                                 return (
                                     <Box
                                         sx={(theme) => ({
@@ -115,4 +121,4 @@ export const OfferModal = (props: {
             </Modal>
         </>
     )
-}
+})
