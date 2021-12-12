@@ -53,10 +53,11 @@ export const OfferDrawer = (props: {
             <Drawer
                 opened={opened}
                 onClose={() => setOpened(false)}
-                size="75%"
-                position='bottom'
+                size= {mobileSize ? '100%' : '40%'}
+                position='left'
                 transitionDuration={600}
                 transitionTimingFunction='ease'
+                padding={'xl'}
             >
                 <Center>
                     <Group direction="column">
@@ -82,21 +83,18 @@ export const OfferDrawer = (props: {
                                             <Group style={{ padding: '0', margin: '0' }}>
                                                 <Avatar size={mobileSize ? 'md' : 'xl'} src={offer.seller.imageUrl}/>
                                                 <Group>
-                                                    <Group direction={'column'}>
-                                                        <Badge variant="outline">
+                                                    <Group direction={'column'} spacing={10}>
+                                                        <Badge variant="outline" >
                                                             {offer.seller.name}
                                                         </Badge>
-                                                        <Text align='center' size='xs'>
+                                                        <Text size='xs' style={{marginTop: '-7px', marginLeft: '2px'}}>
                                                             {offer.seller.category.name}
                                                         </Text>
-                                                    </Group>
-                                                    <Space/>
-                                                    <Group direction={'column'}>
-                                                        <Text align='center' size='sm'>Кэшбэк:</Text>
-                                                        <Text align='center' size='sm'>
-                                                            {digitsAfterDot(offer.cashbackValue, 2)}₽
+                                                        <Text align='center' size='sm' >
+                                                            Кэшбэк: {digitsAfterDot(offer.cashbackValue, 2)}₽
                                                         </Text>
                                                     </Group>
+                                                    <Space w={50}/>
                                                     <Button size='xs'>
                                                         {offer.price} ₽
                                                     </Button>

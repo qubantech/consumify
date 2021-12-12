@@ -17,7 +17,6 @@ export const TotalRecommendationsBlock = observer(() => {
         <>
             <Title order={2}>Рекомендуем вам</Title>
             <Space/>
-            <Spoiler maxHeight={170} hideLabel={'Свернуть'} showLabel={'Показать все предложения'}>
                 <Skeleton visible={isFetching}>
                     <Grid gutter={'sm'} justify='center'>
                         {currentCards && (
@@ -39,7 +38,6 @@ export const TotalRecommendationsBlock = observer(() => {
                                     siblings={1}/>
                     </Center>
                 </Skeleton>
-            </Spoiler>
         </>
     );
 });

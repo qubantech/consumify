@@ -1,81 +1,32 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import '../components/@types/card-interface';
 import { CardInterface } from "../components/@types";
+import {recommendService} from "../http/api-services/recommend-service";
+import {Sellers} from "../http/models/recommend-models/sellers";
+import {storeProfile} from "./profile";
 
-async function getCards (param: string) {
-    let cardsList: CardInterface[] = [];
+async function getCards () {
+    let cardsList:CardInterface[] = []
+    let info1 = await recommendService.getRecommend(storeProfile.id)
+    let inf = info1.data
+    info1.data.forEach((item)=> {
+        //let info2 = await recommendService.getAuthRecommend(storeProfile.id, item.product.id)
+        cardsList.push({
+            name: item.product.name,
+            id: item.product.id,
+            price: item.offers[0].price,
+            cashback: item.offers[0].cashbackValue,
+            total:item.offers[0].seller.name,
+            partner: true
+        })
 
+    })
     return cardsList
 }
+const cardsInitState:CardInterface[] = []
 
-const cardsInitState:CardInterface[] = [{
-    name: 'name',
-    id: 0,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-}, {
-    name: 'name',
-    id: 1,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-},{
-    name: 'name',
-    id: 2,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-},{
-    name: 'name',
-    id: 3,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-},{
-    name: 'name',
-    id: 4,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-},{
-    name: 'name',
-    id: 5,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-},
-    {
-    name: 'name',
-    id: 6,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-},
-    {
-    name: 'name',
-    id: 7,
-    total: 10,
-    cashback: 3,
-    partner: true,
-    price: 1000,
-}, {
-        name: 'name',
-        id: 8,
-        total: 10,
-        cashback: 3,
-        partner: false,
-        price: 1000,
-    }];
-
-const inPage = 4;
+const inPage = 8;
+const totalOffers = 16;
 
 const totalRecommendations = () => {
     const store = {
@@ -98,6 +49,12 @@ const totalRecommendations = () => {
     }
 
     runInAction(() => {
+        getCards()
+            .then((resp)=> {
+                store.cards = resp
+                store.currentCards = store.cards.slice(0,8)
+            })
+
     })
 
     return makeAutoObservable(store)

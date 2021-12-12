@@ -3,10 +3,9 @@ import { OfferModel } from "../../models/offer-models/offer-model";
 
 
 const OfferService = () => {
-
     const getOffers = async (userID: number, productID: number) => {
         let response = await $api.get<Array<OfferModel>>(
-            ENDPOINTS.GET_OFFERS(userID, productID)
+            ENDPOINTS.GET_AUTH_OFFER(userID, productID)
         )
         return {
             status: response.status,
