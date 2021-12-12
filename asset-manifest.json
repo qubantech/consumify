@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.e2ae88ff.chunk.css",
-    "main.js": "/static/js/main.9cc3ff69.chunk.js",
-    "main.js.map": "/static/js/main.9cc3ff69.chunk.js.map",
+    "main.js": "/static/js/main.9ffbef94.chunk.js",
+    "main.js.map": "/static/js/main.9ffbef94.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ce534419.js",
     "runtime-main.js.map": "/static/js/runtime-main.ce534419.js.map",
-    "static/js/2.b160a1b6.chunk.js": "/static/js/2.b160a1b6.chunk.js",
-    "static/js/2.b160a1b6.chunk.js.map": "/static/js/2.b160a1b6.chunk.js.map",
+    "static/js/2.e0546ec0.chunk.js": "/static/js/2.e0546ec0.chunk.js",
+    "static/js/2.e0546ec0.chunk.js.map": "/static/js/2.e0546ec0.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.e2ae88ff.chunk.css.map": "/static/css/main.e2ae88ff.chunk.css.map",
-    "static/js/2.b160a1b6.chunk.js.LICENSE.txt": "/static/js/2.b160a1b6.chunk.js.LICENSE.txt",
+    "static/js/2.e0546ec0.chunk.js.LICENSE.txt": "/static/js/2.e0546ec0.chunk.js.LICENSE.txt",
     "static/media/consumify-black-text-logo.8168cc76.svg": "/static/media/consumify-black-text-logo.8168cc76.svg",
     "static/media/consumify-black-theme-logo.4c8cee7e.svg": "/static/media/consumify-black-theme-logo.4c8cee7e.svg",
     "static/media/consumify-white-text-logo.1650c15a.svg": "/static/media/consumify-white-text-logo.1650c15a.svg",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.ce534419.js",
-    "static/js/2.b160a1b6.chunk.js",
+    "static/js/2.e0546ec0.chunk.js",
     "static/css/main.e2ae88ff.chunk.css",
-    "static/js/main.9cc3ff69.chunk.js"
+    "static/js/main.9ffbef94.chunk.js"
   ]
 }
