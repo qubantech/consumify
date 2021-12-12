@@ -6,5 +6,7 @@ import javax.persistence.*
 data class Product(
     @Id
     val id: Long,
-    val name: String
+    val name: String,
+    @ManyToOne
+    val category: Category
 )
