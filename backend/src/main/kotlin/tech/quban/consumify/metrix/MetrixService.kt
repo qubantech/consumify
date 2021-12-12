@@ -56,7 +56,7 @@ class MetrixService {
         bestUsers: Int,
         bestProducts: Int
     ): TreeMap<Double?, Long?> {
-        val matchesWithUser = TreeMap<Double, Long>()
+        val matchesWithUser = TreeMap<Double, Long>(Collections.reverseOrder())
 
         for (entry in purchases.entries) {
             if (entry.key != userId)
@@ -257,7 +257,7 @@ returns ascending map by matching product's coefficient
         bestUsers: Int,
         bestProducts: Int
     ): TreeMap<Double?, Long?> {
-        val matchesWithUser = TreeMap<Double, Long>()
+        val matchesWithUser = TreeMap<Double, Long>(Collections.reverseOrder())
 
         for (entry in purchases.entries) {
             if (entry.key != userId)
@@ -458,7 +458,7 @@ returns ascending map by matching product's coefficient
         bestUsers: Int,
         bestProducts: Int
     ): TreeMap<Double?, Long?> {
-        val matchesWithUser = TreeMap<Double, Long>()
+        val matchesWithUser = TreeMap<Double, Long>(Collections.reverseOrder())
 
         for (entry in purchases.entries) {
             if (entry.key != userId)

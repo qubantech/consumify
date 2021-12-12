@@ -48,28 +48,15 @@ class TestController(
         )
 
         System.out.printf(
-            "\n\t\tCOS BY CATEGORY:" + metrixService.makeRecommendationByCategoryCos(userId, userCategoryMoneyMap, 8, 16)
-                .toString() + "\n"
-        )
-
-        System.out.printf(
             "\n\t\tSzymkiewicz BY PRODUCTS:" + metrixService.makeRecommendationByProductSzymkiewicz(userId, userProductMoneyMap, 8, 16)
                 .toString() + "\n"
         )
 
-        System.out.printf(
-            "\n\t\tSzymkiewicz BY CATEGORY:" + metrixService.makeRecommendationByCategorySzymkiewicz(userId, userCategoryMoneyMap, 8, 16)
-                .toString() + "\n"
-        )
 
         System.out.printf(
             "\n\t\tJakkar BY PRODUCTS:" + metrixService.makeRecommendationByProductJakkar(userId, userProductMoneyMap, 8, 16)
                 .toString() + "\n"
         )
 
-        System.out.printf(
-            "\n\t\tJakkar BY CATEGORY:" + metrixService.makeRecommendationByProductJakkar(userId, userCategoryMoneyMap, 8, 16)
-                .toString() + "\n"
-        )
     }
 }
