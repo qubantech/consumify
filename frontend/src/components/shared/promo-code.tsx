@@ -66,7 +66,7 @@ export const PromoCode = (props: {
                         <Group direction={'column'} position={'center'} style={styles}>
                             <Paper padding={3} shadow={'sm'}>
                                 <Center>
-                                    <Text size={'sm'}>{props.promoCode.code}</Text>
+                                    <Text size={'sm'} sx={{padding: '2px 10px'}}>{props.promoCode.code}</Text>
                                 </Center>
                             </Paper>
                             <Text size={'xs'} color={'#ffffff'}>До 31 декабря</Text>
