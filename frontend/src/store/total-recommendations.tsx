@@ -81,11 +81,11 @@ const totalRecommendations = () => {
     const store = {
         isFetching: false,
         cards: cardsInitState,
-        currCards: cardsInitState.slice(0, inPage),
+        currentCards: cardsInitState.slice(0, inPage),
         total: 2,
         currentPage: 1,
         setCurrentPage (page: number) {
-            store.currCards = store.cards.slice(inPage * (page - 1), inPage * page)
+            store.currentCards = store.cards.slice(inPage * (page - 1), inPage * page)
             store.currentPage = page
         },
     }
