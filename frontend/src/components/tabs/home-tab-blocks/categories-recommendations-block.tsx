@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Grid,
-    Col,
+    Text,
     Pagination,
     Center,
     Space,
@@ -50,7 +50,8 @@ export const CategoriesRecommendationsBlock = observer(() => {
                         </Group>
                     </div>
                     <Space h='md'/>
-                    <Grid gutter={'sm'} justify='center'>
+                    <Text size={"xl"}>Скоро...</Text>
+                    {/*<Grid gutter={'sm'} justify='center'>
                         {currentCards && (
                             currentCards.map((card: CardInterface) =>
                                 <Col key={card.id} span={12} xs={6} sm={4} md={3} lg={3} xl={3}>
@@ -58,15 +59,15 @@ export const CategoriesRecommendationsBlock = observer(() => {
                                 </Col>
                             ))
                         }
-                    </Grid>
+                    </Grid>*/}
                     <Space h='md'/>
-                    <Center>
+                    {/*<Center>
                         <Pagination page={currentPage}
                                     onChange={setCurrentPage}
                                     total={total}
                                     radius={'xl'}
                                     siblings={1}/>
-                    </Center>
+                    </Center>*/}
                 </div>
             </Skeleton>
         </div>

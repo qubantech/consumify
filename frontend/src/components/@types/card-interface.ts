@@ -1,7 +1,7 @@
 export interface CardInterface {
     name: string,
     id: number,
-    total: number,
+    total: string,
     cashback: number,
     partner: boolean,
     price: number,

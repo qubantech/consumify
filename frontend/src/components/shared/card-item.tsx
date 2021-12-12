@@ -11,13 +11,13 @@ import { getColor } from "../../methods/color-picker";
 export const CardItem = (props: { card: CardInterface }) => {
 
     return (
-        <div style={{maxWidth: '300px', minWidth: '220px'}}>
-            <Card shadow='md' padding='xs'>
+        <div style={{width: '260px'}}>
+            <Card shadow='md' padding='xs' style={{height:"100%"}}>
                 <Card.Section>
                     <div style={{
                         marginTop: '-20px',
                         height: '180px',
-                        backgroundColor: getColor(props.card.id, props.card.total)
+                        backgroundColor: getColor(props.card.id, 16)
                     }}>
                         <Group position={props.card.partner ? "apart" : "right"} sx={{ margin: 5 }}>
                             {
@@ -45,8 +45,11 @@ export const CardItem = (props: { card: CardInterface }) => {
                     <Text>
                         {props.card.name}
                     </Text>
-                    <Badge>
-                        {props.card.cashback}%
+                    <Text size={"xs"}>
+                        {props.card.total}
+                    </Text>
+                    <Badge size={"lg"}>
+                        {props.card.cashback}₽
                     </Badge>
                 </Group>
                 <Group position="apart" sx={{ marginTop: 30 }}>
