@@ -1,12 +1,15 @@
 import React from 'react';
+
 import { Card, Text, Badge, Button, Group, Menu } from '@mantine/core';
-import { getColor } from "../../methods/color-picker";
 import { PlusIcon } from '@radix-ui/react-icons'
+
 import { CardInterface } from "../@types";
 
-export const CardItem = (props: {
-    card: CardInterface
-}) => {
+import { getColor } from "../../methods/color-picker";
+
+
+export const CardItem = (props: { card: CardInterface }) => {
+
     return (
         <div style={{maxWidth: '300px', minWidth: '220px'}}>
             <Card shadow='md' padding='xs'>
@@ -53,5 +56,5 @@ export const CardItem = (props: {
                 </Group>
             </Card>
         </div>
-    );
-};
+    )
+}

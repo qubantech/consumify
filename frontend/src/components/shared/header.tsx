@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { ReactElement, useState } from 'react'
 
 import {
     ActionIcon,
-    MediaQuery,
     Group,
     Header as MantineHeader,
     Center,
     useMantineColorScheme,
     UnstyledButton,
-    Avatar,
-    Image
+    Text,
+    Image,
+    Popover
 } from '@mantine/core'
 
 import {
@@ -20,20 +20,50 @@ import {
     MoonIcon
 } from '@radix-ui/react-icons'
 
-import { storeCashBacks } from "../../store";
-import { ProfileIconHeader } from "./profile-icon-header";
+import { storeCashBacks } from '../../store';
+import { ProfileIconHeader } from './profile-icon-header';
 
 import { Link } from 'react-router-dom'
-import { DISPLAY_NONE, PATHS } from '../../misc/paths'
+import { PATHS } from '../../misc/paths'
 
 import DarkThemeLogo from './../../assets/consumify-black-theme-logo.svg'
 import LightThemeLogo from './../../assets/consumify-white-theme-logo.svg'
 import DarkThemeTextLogo from './../../assets/consumify-black-text-logo.svg'
 import LightThemeTextLogo from './../../assets/consumify-white-text-logo.svg'
-import {useMediaQuery} from "@mantine/hooks";
+import { useMediaQuery } from '@mantine/hooks';
 
 
 const ICON_SIZE = { height: 20, width: 20 }
+
+
+export const CustomPopover = (props: { target: ReactElement, text: string, onButtonClick: (e: any) => void }) => {
+
+    const [ opened, setOpened ] = useState(false)
+
+    return (
+        <Popover
+            opened={opened}
+            onClose={() => setOpened(false)}
+            position="bottom"
+            placement="start"
+            withArrow
+            noFocusTrap
+            noEscape
+            transition="pop-top-left"
+            styles={{ body: { width: 260, pointerEvents: 'none' } }}
+            target={
+                <ActionIcon onClick={props.onButtonClick}
+                            onMouseEnter={() => setOpened(true)}
+                            onMouseLeave={() => setOpened(false)}>
+                    {props.target}
+                </ActionIcon>
+            }>
+            <Text size="sm">
+                {props.text}
+            </Text>
+        </Popover>
+    );
+}
 
 
 export const Header = () => {
@@ -46,7 +76,7 @@ export const Header = () => {
     const onThemeButtonClick = () => toggleColorScheme()
     const onCashbackButtonClick = () => storeCashBacks.setIsOpen(true)
 
-    const mediumScreen = useMediaQuery('(max-width: 992px)');
+    const mediumScreen = useMediaQuery('(max-width: 992px)')
 
 
     const MobileView = () =>
@@ -54,20 +84,20 @@ export const Header = () => {
             <Group grow>
                 <Link to={PATHS.HOME}>
                     <Center>
-                        <ActionIcon size={"lg"}>
+                        <ActionIcon size={'lg'}>
                             <HomeIcon style={ICON_SIZE}/>
                         </ActionIcon>
                     </Center>
                 </Link>
                 <Link to={PATHS.PROFILE}>
                     <Center>
-                        <ActionIcon size={"lg"}>
+                        <ActionIcon size={'lg'}>
                             <PersonIcon style={ICON_SIZE}/>
                         </ActionIcon>
                     </Center>
                 </Link>
                 <Center>
-                    <ActionIcon size={"lg"} onClick={() => storeCashBacks.setIsOpen(true)}>
+                    <ActionIcon size={'lg'} onClick={() => storeCashBacks.setIsOpen(true)}>
                         <CardStackIcon style={ICON_SIZE}/>
                     </ActionIcon>
                 </Center>
@@ -83,28 +113,27 @@ export const Header = () => {
                         <UnstyledButton>
                             <Group spacing='xs'>
                                 <Image src={DarkThemeLogo}
-                                       alt="dark-theme-logo"
+                                       alt='dark-theme-logo'
                                        width={37}
                                        height={37}
                                 />
                                 <Image src={LightThemeTextLogo}
-                                       alt="dark-theme-logo"
+                                       alt='dark-theme-logo'
+                                       height={18}
                                 />
                             </Group>
                         </UnstyledButton>
                     </Link>
                 </Group>
-                <Group position={"right"}>
-                    <ActionIcon
-                        size={"lg"}
-                        onClick={onThemeButtonClick}
-                        title="Toggle color scheme"
-                    >
-                        {ThemeButtonIcon}
-                    </ActionIcon>
-                    <ActionIcon onClick={onCashbackButtonClick}>
-                        <CardStackIcon style={ICON_SIZE}/>
-                    </ActionIcon>
+                <Group position={'right'}>
+                    <CustomPopover
+                        target={ThemeButtonIcon}
+                        text={'Сменить тему приложения'}
+                        onButtonClick={onThemeButtonClick}/>
+                    <CustomPopover
+                        target={<CardStackIcon style={ICON_SIZE}/>}
+                        text={'Выбрать категории кэшбэка, кэшбэк от партнёров'}
+                        onButtonClick={onCashbackButtonClick}/>
                     <ProfileIconHeader avatarSize={'md'} idSize={'md'}/>
                 </Group>
             </Group>
