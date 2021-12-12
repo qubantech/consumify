@@ -4,10 +4,16 @@ import {Cross1Icon} from "@radix-ui/react-icons";
 import {storeCashBacks} from "../../store/cashbacks-list";
 import {ModalDeleteSubscriptions} from "./modal-delete-subscriptions";
 
-export const CardsCashbackCategories = () => {
+export const CardsCashbackCategories = (props:{
+    name:string,
+    mcc: number,
+    percent: number,
+    description: string,
+    until: number
+}) => {
     const mdscreen = useMediaQuery('(min-width: 992px)');
     const {confirmDelete, setConfirmDelete} = storeCashBacks
-
+    let date = new Date(props.until)
     return(
         <>
             <ModalDeleteSubscriptions/>
@@ -18,23 +24,22 @@ export const CardsCashbackCategories = () => {
                             MG
                         </Avatar>
                         <Group sx={{width:"100%"}} spacing={"xs"} direction={"column"}>
-                            <Text lineClamp={1}>Супермаркеты</Text>
+                            <Text lineClamp={1}>{props.name}</Text>
                         </Group>
                         <Text lineClamp={1} align={"right"} sx={{width:"100px"}} size={"xl"}>
-                            5%
+                            {props.percent}%
                         </Text>
-                        <ActionIcon size={"xs"} onClick={()=> setConfirmDelete(0)}>
+                        <ActionIcon size={"xs"} onClick={()=> setConfirmDelete(props.mcc)}>
                             <Cross1Icon/>
                         </ActionIcon>
                     </Group>
                     <Space h={"xs"}/>
                     <Group spacing={"xs"} grow direction={mdscreen ? "row" : "column"}>
-                        <Text lineClamp={1} align={mdscreen ? "right" : "left"} size={"sm"}> 199 рублей/месяц</Text>
-                        <Text lineClamp={1} size={"xs"} color={"gray"}>Ближайшая дата списания: 23.12.2021</Text>
+                        <Text lineClamp={1} align={mdscreen ? "right" : "left"} size={"sm"}> 399 рублей/месяц</Text>
+                        <Text lineClamp={1} size={"xs"} color={"gray"}>Ближайшая дата списания: {date.toLocaleDateString()}</Text>
                     </Group>
                     <Space h={"xs"}/>
-                    <Text size={"xs"} color={"gray"}>Лимит кэшбека 3000 рублей в месяц. При совершении
-                        более 5 покупок в день - кэшбек на 6 и последующие не начисляется.
+                    <Text size={"xs"} color={"gray"}>{"MCC: "+props.mcc + ". " +  props.description}
                     </Text>
                 </Spoiler>
             </Card>

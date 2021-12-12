@@ -1,7 +1,12 @@
 import {Avatar, Card, Group, Space, Spoiler, Text} from "@mantine/core";
 import {useMediaQuery} from "@mantine/hooks";
 
-export const CardsCashbackPartners = () => {
+export const CardsCashbackPartners = (props:{
+    imageUrl: string,
+    percent: number,
+    name: string,
+    description: string
+}) => {
     const mdscreen = useMediaQuery('(min-width: 992px)');
 
 
@@ -9,19 +14,16 @@ export const CardsCashbackPartners = () => {
         <Card radius={"xs"} shadow={"md"}>
             <Spoiler maxHeight={mdscreen ? 200: 40} showLabel="Полные условия" hideLabel="Скрыть полные условия">
                 <Group noWrap>
-                    <Avatar radius={"xl"}>
-                        MG
-                    </Avatar>
+                    <Avatar src={props.imageUrl} radius={"xl"}/>
                     <Group sx={{width:"100%"}} spacing={"xs"} direction={"column"}>
-                        <Text lineClamp={1}>Magnit</Text>
+                        <Text lineClamp={1}>{props.name}</Text>
                     </Group>
-                    <Text align={"right"} sx={{width:"100px"}} size={"xl"}>
-                        5%
+                    <Text align={"right"} sx={{width:"130px"}} size={"xl"}>
+                        {props.percent}%
                     </Text>
                 </Group>
                 <Space h={"xs"}/>
-                <Text size={"xs"} color={"gray"}>Лимит кэшбека 3000 рублей в месяц. При совершении
-                    более 5 покупок в день - кэшбек на 6 и последующие не начисляется.
+                <Text size={"xs"} color={"gray"}>{props.description}
                 </Text>
             </Spoiler>
         </Card>

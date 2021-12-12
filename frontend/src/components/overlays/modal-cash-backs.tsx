@@ -7,7 +7,7 @@ import {
     Image,
     Menu,
     Modal,
-    Paper,
+    Paper, Skeleton,
     Space,
     Tabs,
     Text,
@@ -30,6 +30,8 @@ export const ModalCashBacks = observer(() => {
 
     const { isOpen, setIsOpen } = storeCashBacks
     const theme = useMantineTheme();
+
+    const {partnersAllList, partnersUserList, subscriptionsUserList, isFetching} = storeCashBacks
 
     return (
         <Modal
@@ -73,16 +75,29 @@ export const ModalCashBacks = observer(() => {
                                      labelPosition={'center'}
                                      label={<Title order={6}>Персональный кэшбек</Title>}/>
                             <Space h={'md'}/>
-                            <CardsCashbackPartners/>
+                            {partnersUserList ? partnersUserList.map((item) =>
+                                    <CardsCashbackPartners imageUrl={item.seller.imageUrl}
+                                                           percent={item.percent}
+                                                           name={item.seller.name}
+                                                           description={item.description}
+                                    />
+                                ) :
+                                <Skeleton height={100}/>
+                            }
                             <Space h={'xs'}/>
                             <Divider size={'xl'}
                                      labelPosition={'center'}
                                      label={<Title order={6}>Повышенный кэшбек</Title>}/>
                             <Space h={'md'}/>
-                            <CardsCashbackPartners/>
-                            <CardsCashbackPartners/>
-                            <CardsCashbackPartners/>
-                            <CardsCashbackPartners/>
+                            {partnersAllList ? partnersAllList.map((item) =>
+                                <CardsCashbackPartners imageUrl={item.seller.imageUrl}
+                                                       percent={item.percent}
+                                                       name={item.seller.name}
+                                                       description={item.description}
+                                />
+                            ) :
+                                <Skeleton height={100}/>
+                            }
                         </Tabs.Tab>
                         <Tabs.Tab label={'Кэшбек от банка'}>
                             <Divider size={'xl'}
@@ -95,7 +110,15 @@ export const ModalCashBacks = observer(() => {
                                      labelPosition={'center'}
                                      label={<Title order={6}>Действующие подписки</Title>}/>
                             <Space h={'md'}/>
-                            <CardsCashbackCategories/>
+                            {subscriptionsUserList ? subscriptionsUserList.map((item)=>
+                                <CardsCashbackCategories name={item.categoryCashback.category.name}
+                                                         mcc ={item.categoryCashback.category.id}
+                                                         percent ={item.categoryCashback.percent}
+                                                         description = {item.categoryCashback.description}
+                                                         until = {item.subscribedUntil}
+                                />
+                            ):
+                                <Skeleton height={100}/>}
                         </Tabs.Tab>
                     </Tabs>
                 </>)

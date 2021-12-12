@@ -1,26 +1,20 @@
-import {Avatar, Button, Center, Group, Select, Space, Text} from "@mantine/core";
+import {Button, Center, Group, Select, Space, Text} from "@mantine/core";
 import {ForwardedRef, forwardRef} from "react";
 import {storeCashBacks} from "../../store/cashbacks-list";
+import {Category} from "../../http/models/category-models/category";
 
-export interface SelectProps {
-    image: string,
-    label: string,
-    value: string,
-    description: string
-}
 
 export const SelectSubscriptions = () => {
     const {subscriptionsAllList} = storeCashBacks
 
     const SelectItem = forwardRef(
-        ({ image, label, description, ...others }:SelectProps, ref:ForwardedRef<any>) => (
+        ({ id, label, ...others }:Category, ref:ForwardedRef<any>) => (
             <div ref={ref} {...others}>
                 <Group noWrap>
-                    <Avatar src={image} />
                     <div>
                         <Text>{label}</Text>
-                        <Text size="xs" color="dimmed">
-                            {description}
+                        <Text size="xs" color="dimmed">-
+                            {id}
                         </Text>
                     </div>
                 </Group>
@@ -30,16 +24,15 @@ export const SelectSubscriptions = () => {
     return (
         <>
             <Select
-                label="Choose employee of the month"
-                placeholder="Pick one"
+                label="Выберите категорию из списка"
+                placeholder="Одна из..."
                 itemComponent={SelectItem}
                 data={subscriptionsAllList}
                 searchable
                 maxDropdownHeight={400}
                 nothingFound="Nobody here"
                 filter={(value, item) =>
-                    item.label!.toLowerCase().includes(value.toLowerCase().trim()) ||
-                    item.description.toLowerCase().includes(value.toLowerCase().trim())
+                    item.label!.toLowerCase().includes(value.toLowerCase().trim())
                 }
             />
             <Space h={"xs"}/>
