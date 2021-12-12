@@ -9,6 +9,7 @@ import { ProfileIconHeader } from '../../shared/profile-icon-header';
 import { useNavigate } from 'react-router-dom';
 import { storeProfile } from '../../../store';
 import { DISPLAY_NONE } from '../../../misc/paths';
+import { useMediaQuery } from "@mantine/hooks";
 
 
 export const StartAndProfileBlock = observer(() => {
@@ -29,10 +30,12 @@ export const StartAndProfileBlock = observer(() => {
         }
     }
 
+    const mobileScreen = useMediaQuery('(max-width: 576px)')
+
     return (
         <div>
             <Group spacing={'xs'} position={'apart'}>
-                <ProfileIconHeader avatarSize={'lg'} idSize={'xl'}/>
+                <ProfileIconHeader avatarSize={mobileScreen ? 'md' : 'lg'} idSize={'xl'}/>
                 <MediaQuery smallerThan={'md'} styles={DISPLAY_NONE}>
                     <ActionIcon
                         size={'lg'}
