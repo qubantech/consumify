@@ -6,7 +6,7 @@ import java.util.*
 
 @Service
 class MetrixService {
-    fun getSameElementsAmount(a: Map<Long?, Double?>, b: Map<Long?, Double?>?): Int {
+    private fun getSameElementsAmount(a: Map<Long?, Double?>, b: Map<Long?, Double?>?): Int {
         var s = 0
         for (key in a.keys) {
             if (b != null) {
@@ -48,7 +48,7 @@ class MetrixService {
 
     /*
     purchases: Map<user_id, Map<product_id, overall_product_price>>
-    returns ascending map by matching coefficient
+    returns ascending map by matching product's coefficient
      */
     fun makeRecommendationByProduct(
         userId: Long,
@@ -145,7 +145,10 @@ class MetrixService {
         return bestSimilarity
     }
 
-
+    /*
+    purchases: Map<user_id, Map<product_id, overall_product_price>>
+    returns ascending map by matching product's coefficient
+     */
     fun makeRecommendationByCategory(
         userId: Long,
         purchases: MutableMap<Long, MutableMap<Long, Double>>,
@@ -154,12 +157,13 @@ class MetrixService {
     ): TreeMap<Double?, Long?> {
         val matchesWithUser = TreeMap<Double, Long>()
 
+        // counting coefficients of matching users
         for (entry in purchases.entries) {
             if (entry.key != userId)
                 matchesWithUser.put(distanceCos(purchases[userId]!!, entry.value), entry.key)
         }
 
-        // get most matching users
+        // get MOSTLY matching users (amount = bestUsers)
         var bestMatchesWithUser = matchesWithUser.entries.stream()
             .limit(bestUsers.toLong())
             .collect(
@@ -174,14 +178,14 @@ class MetrixService {
                     m!!
                 )
             }
-//        System.out.printf(bestMatchesWithUser.toString())
 
-        // sim: id_product, overall_price
+        // sim: product_category, overall_price
         val sim: TreeMap<Long, Double> = TreeMap()
         var sim_all = 0.0
         for (matchValue in bestMatchesWithUser.keys) {
             sim_all += bestMatchesWithUser[matchValue]!!
         }
+        // selection of MOSTLY matching
         val newBestMatchesWithUser = bestMatchesWithUser
         for (matchValue in bestMatchesWithUser.keys) {
             if (matchValue < 0.01)
@@ -191,13 +195,13 @@ class MetrixService {
 
         bestMatchesWithUser = newBestMatchesWithUser
         for (user in bestMatchesWithUser.values) {
-            for (product in purchases[user]!!.keys) {
-                if (purchases[userId]!!.containsKey(product)) {
-                    if (!sim.containsKey(product))
-                        sim.put(product, 0.0)
+            for (productCategory in purchases[user]!!.keys) {
+                if (purchases[userId]!!.containsKey(productCategory)) {
+                    if (!sim.containsKey(productCategory))
+                        sim.put(productCategory, 0.0)
 
-                    val p = product
-                    val purUserProd = purchases[user]!![product]!!
+                    val p = productCategory
+                    val purUserProd = purchases[user]!![productCategory]!!
 
                     val swappedMap = TreeMap<Long, Double>()
                     for (key in bestMatchesWithUser.keys) {
@@ -206,7 +210,7 @@ class MetrixService {
                     }
                     val bestM = swappedMap[user]!!
 
-                    val s = sim[product]!!
+                    val s = sim[productCategory]!!
                     sim.replace(p, purUserProd * bestM + s)
                 }
             }
