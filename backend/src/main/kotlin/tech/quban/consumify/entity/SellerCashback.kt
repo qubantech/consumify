@@ -11,5 +11,6 @@ data class SellerCashback(
     @ManyToOne
     val seller: Seller,
     val percent: BigDecimal,
+    val bankPercent: BigDecimal,
     val description: String
 )
