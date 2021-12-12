@@ -1,3 +1,4 @@
+
 export interface PromoCodeInterface {
     shop: string,
     title: string
