@@ -22,7 +22,7 @@ class MetrixService {
     Couple of users only
     a,b = Map<idProduct, overallPrice>
      */
-    fun distanceCos(a: MutableMap<Long, Double>?, b: MutableMap<Long, Double>?): Double {
+    private fun distanceCos(a: MutableMap<Long, Double>?, b: MutableMap<Long, Double>?): Double {
         var a_b = 0.0
         var a_a = 0.0
         var b_b = 0.0
@@ -36,7 +36,7 @@ class MetrixService {
         return a_b / Math.sqrt(a_a) / Math.sqrt(b_b)
     }
 
-    fun SzymkiewiczSimpsonCoefficent(a: Map<Long?, Double?>, b: Map<Long?, Double?>): Double {
+    private fun SzymkiewiczSimpsonCoefficent(a: Map<Long?, Double?>, b: Map<Long?, Double?>): Double {
         val c = getSameElementsAmount(a, b)
         return (c / NumberUtils.min(a.values.size, b.values.size)).toDouble()
     }
